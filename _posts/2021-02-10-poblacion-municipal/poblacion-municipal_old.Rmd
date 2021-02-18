@@ -1,0 +1,216 @@
+---
+title: "Población municipal"
+description: |
+  Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero para su uso posterior.
+author:
+  - name: Pedro J. Pérez
+    affiliation: Universitat de València
+    orcid_id: 0000-0001-9375-6330
+date: 2021-02-10
+#base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
+#bibliography: ref.bib
+#slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
+#preview: imagenes/ine_atlas_renta.png
+twitter:
+  creator: "@pjpv4444"
+categories: [datos INE, municipios, población, población municipal]
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+    toc_float: true   
+    code_folding: true
+    css: assets/theme_frie_pjp_posts.css  #- 
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+knitr::opts_chunk$set(
+  #code_folding = FALSE,
+  echo = FALSE, warning = FALSE, message = FALSE,
+  comment = "#>", results = "hold",
+  collapse = TRUE,  fig.show = "hold", fig.asp = 0.618, fig.width = 6, out.width = "70%", fig.align = "center",
+  R.options = list(width = 70) #- Keeping R code and output at 70 characters wide (or less) is recommended for readability on a variety of devices and screen sizes.
+)
+```
+
+```{r options_setup, include = FALSE}
+options(scipen = 999) #- para quitar la notación científica
+```
+
+```{r xaringanExtra-clipboard, include = FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+Siempre me ha gustado saber cuantos habitantes tiene mi pueblo y resulta que el 30 de diciembre de 2020 el INE publicó finalmente las cifras definitivas de [población municipal](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177011&menu=resultados&idp=1254734710990) referentes a fecha 1 de enero de 2020, así que ...
+
+## Introducción
+
+Como señala el INE, la operación estadística "Cifras oficiales de población de los municipios españoles: Revisión del Padrón Municipal" publica con referencia a 1 de enero de cada año, la población por sexo a nivel municipal. ^[Las series comienzan en el año 1996, punto de arranque del actual sistema de gestión padronal y cuyas cifras van referidas al 1 de mayo siendo la Revisión a 1 de enero de 1998 la primera actualización en llevarse a cabo de acuerdo a este sistema.]
+
+El **Padrón Municipal** es un registro administrativo donde constan los vecinos del municipio. Su formación, mantenimiento, revisión y custodia corresponde a los respectivos **ayuntamientos**, quienes **deben remitir al INE** las variaciones mensuales. El INE, realiza comprobaciones, subsana errores y duplicidades y obtiene para cada municipio la cifra de población. El Presidente del INE, con el informe favorable del Consejo de Empadronamiento, eleva al Gobierno la propuesta de cifras oficiales de población de los municipios españoles referidas a 1 de enero de cada año, para su aprobación mediante real decreto, **declarando así como oficiales las cifras de población** resultantes de la revisión del Padrón municipal y procediendo a su publicación en el Boletín Oficial del Estado.
+
+De forma que la cifra oficial de **población en España a 1 de enero de 2020 fue de 47.450.795 personas**; es decir, 424.587 más que en 2019. Pero, ¿cómo está distribuida esa población por los 8.131 municipios españoles?
+
+## Datos
+
+El INE ofrece [aquí](https://www.ine.es/dynt3/inebase/es/index.htm?padre=517&capsel=525)^[El enlace de descarga es [este](https://www.ine.es/pob_xls/pobmun.zip)] los datos de población a nivel municipal. Los datos están en un archivo comprimido que contiene un fichero para cada año desde 1996, con la excepción de 1997, con la población de los municipios españoles (por genero) a 1 de enero de cada año.^[El fichero de 1996 tiene las cifras de población referenciadas a 1 de mayo]
+
+Vamos al lio, hay que descargar, arreglar/limpiar y fusionar los distintos ficheros. El objetivo es tener los datos de todos los años en un único fichero. Esto yo ya lo había hecho hace tiempo, así que solo me ha tocado añadir los datos de 2020 y arreglar un poco el código. El código completo lo tienes [aquí]
+
+La verdad es que, al menos para mi, no es fácil fusionar los 24 ficheros de población municipal que ofrece el INE. Hay algunas inconsistencias en los nombres de los ficheros y variables que no siempre es fácil detectar, pero bueno ya lo tengo hecho.^[La verdad es que cuando estás arreglando un dataset y ves fallos tontos o inconsistencias que te van dificultando el proceso, maldices y juras como 100 veces en arameo, pero ninguna crítica al INE. Entiendo que intentan hacer las cosas lo mejor que pueden con sus restricciones de tiempo, personal etc ... y que tienen sus propios objetivos y su propia historia: en 1998, fecha de cuando datan algunos de los archivos, no se tenían ni los mismos conocimientos, ni herramientas, ni forma de trabajar etc... etc.... Además, cualquiera que vea mi código puede pensar lo mismo de mi, que no soy consistente etc ... pues sí, lo hago como sé y puedo con el tiempo que le quiero dedicar.], ^[De verdad, ninguna crítica al INE, pero quizás sí que el INE debería crear, igual ya existe, algún canal para hacer sugerencias para favorecer la usabilidad de los datos. Para un usuario medio creo que no es fácil fusionar estos datos ni detectar las inconsistencias para fusionarlos, así que mi petición al INE consistiría en que ofreciese, además de los ficheros tal y como están ahora, no tocarlos por favor, un enlace para descargar los ficheros ya fusionados]
+
+
+Como nadie va a mirar mi código para ver cuales son esas inconsistencias a la hora de fusionar los ficheros, señalaré algunas:
+
+- los nombres de los ficheros no incorporan el año completo, por ejemplo: `pobmun03.xls`
+
+- hay ficheros `.xls` y `.xlsx`.
+
+Estas dos inconsistencias son menores y la segunda de ellas es lógico que ocurra, dado que hay datos de cuando el formato `.xlsx` no existía^[El formato `.xlsx` apareció en 2007, pero el fichero INE con los datos de 1996 sí está en ese formato; sin embargo los de 1998 hasta 2013 están en formato `.xls`], pero dificultan el fusionar los ficheros de forma automática con código.
+
+- generalmente los ficheros tienen una linea informativa antes de los datos, pero el fichero correspondiente a 1998 no tenía esa linea, y los ficheros de 2012 a 2015 y 2017 tenían dos lineas de cabecera.
+
+- los ficheros de 2002, 2007 y 2009 tienen filas con los totales provinciales, cosa que no ocurre en el resto de años; ademas, el fichero de 2016 tiene una fila para el total de la población española.
+
+Otra vez inconsistencias menores, que son totalmente lógicas, pero que dificultan la fusión de los archivos.
+
+- en el fichero de 1998, el valor de la variable `CMUN` tiene cuatro dígitos, cuando debería tener solo 3. Hay que quedarse con los 3 primeros dígitos, creo que el cuarto es el primer dígito de la variable DC, dígito de control. Se debió colar.
+
+Todas son inconsistencias menores y un error tonto, pero dificultan mucho la fusión de los ficheros anuales con la población municipal en un único fichero. Vuelvo a reiterar que son errores menores: a ver cuantos fallos he cometido yo!!! espero que ninguno, pero recordad que yo lo hago a veces por gusto, a veces por motivos profesionales. En este caso realicé la fusión para tener un fichero de datos con los que trabajar en clase.
+
+###  ¿No hay otra forma de obtener los datos oficiales de población?
+
+Sí, que yo sepa hay dos formas más:
+
+- Los [microdatos](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177012&menu=resultados&secc=1254736195462&idp=1254734710990#!tabs-1254736195462) del Padrón  Continuo. El INE provee un fichero .zip por año. Dentro del fichero .zip están los microdatos en varios formatos, incluyendo también un script para transformar los datos a formato R. Evidentemente los microdatos ofrecen más información: lugar de nacimiento y edad , pero por motivos de secreto estadístico se blanquea el municipio de residencia y nacimiento en los municipios de menos de 10.000 habitantes. Es decir, con los microdatos no podría saber cuantos habitantes tiene mi pueblo. 
+
+
+- Un conjunto de tablas en formato `pcaxis` con la población municipal por genero y alguna otra característica (edad y lugar de nacimiento desagregado y cruzado a varios niveles). Con estas tablas podría ver por ejemplo la composición por edad o nacionalidad de mi pueblo. El INE ofrece estas tablas en un fichero para el periodo 2015-2020 y un fichero individual para años anteriores. Seguro que lo haré!!
+
+
+## Análisis
+
+La verdad es que al fichero con la población municipal fusionada ya le he sacado provecho en clase. Es un fichero que suele gustar a los estudiantes: a todos nos gusta contar y saber los habitantes de nuestro pueblo, sobre todo al [Conde Draco](https://www.youtube.com/watch?v=KZmLI7eYjmw).
+
+Solo con los datos de población municipal no se pueden hacer, evidentemente, análisis complejos pero si sirven para ver algunas pautas en la población y su distribución territorial y también para contestar a muchas curiosidades como por ejemplo: ¿en qué provincias ha crecido más la población en la última década? o ¿cuantos municipios hay en España con más mujeres que hombres? Estos dos ejercicios solemos hacerlos en clase, así que aquí los replicaré.^[Muestro el código, pero no quiero/puedo colgar en el blog el fichero de datos, acabaría siendo un proyecto muy pesado porque tengo intención de hacer posts con datos más voluminosos]
+
+
+### Provincias con mayor crecimiento en la población
+
+He fusionado en un único fichero de datos la población municipal para el periodo 1998 a 2020. Con él voy a obtener las provincias que han experimentado mayores y menores incrementos en su población. Es un ejercicio sencillo, ya digo que solemos hacerlo en clase, lo "complicado" es hacer luego una buena visualización.
+
+
+```{r}
+library(tidyverse)
+df <- readr::read_rds("/home/pjpv/Escritorio/my_datos_2021/datos/INE/pob_mun/ine_pob_mun_1996_2020.rds")
+
+df_result <- df %>% 
+  filter(poblacion == "Total") %>% 
+  filter(year %in% c(2000, 2020)) %>% 
+  group_by(ine_prov, ine_prov.n, year) %>% 
+  mutate(habitantes = sum(values)) %>% 
+  select(ine_prov, ine_prov.n, ine_ccaa, ine_ccaa.n, year, habitantes) %>%
+  distinct() %>% 
+  pivot_wider(names_from = c("year"), values_from = c("habitantes")) %>% 
+  mutate(crec_2020_2000 = `2020`- `2000`) %>% 
+  mutate(crec_porcentual = (`2020`- `2000`) / `2000` *100) %>% 
+  arrange(desc(crec_porcentual))
+
+DT::datatable(df_result)
+```
+Vamos a hacer un mapa con los resultados:
+
+
+```{r}
+#- Haz un mapa como este: https://twitter.com/Ruiz_Noticias/status/1359464475297017858
+#- el traslado de Canarias: https://github.com/Nowosad/spain-map-layout/blob/master/R/03_third_approach.R
+#- el repo de Novasad: https://github.com/Nowosad/spain-map-layout
+#- mi gráfico de LAU2: https://github.com/perezp44/LAU2boundaries4spain/blob/master/README.Rmd
+#- otro de Canarias: https://procomun.wordpress.com/2012/02/18/maps_with_r_1/comment-page-1/
+#- aaumetre de canarias: https://github.com/aaumaitre/maps_Spain
+```
+
+
+
+Por supuesto, estos resultados solo nos ofrecen alguna pista parcial sobre la dinámica de la población. Por ejemplo Zamora es la provincia con una mayor descenso, un 16%, pero ¿ha sido este descenso un fenómeno sostenido o es algo reciente? Bueno ya que nos ponemos lo hacemos para todas las provincias
+
+Aquí va otro gráfico que empieza en 0 para todas las provincias y se ve la evolución en número índice
+
+- los gráficos de numeroteca: <https://lab.montera34.com/covid19/vacunas.html>
+
+- la race bar de lorena abad: <https://twitter.com/loreabad6/status/1360334553827717122>
+
+```{r}
+df_result <- df %>% 
+  filter(poblacion == "Total") %>% 
+  filter(year >= 2000) %>% 
+  group_by(ine_prov, ine_prov.n, year) %>% 
+  mutate(habitantes = sum(values)) %>% 
+  select(ine_prov, ine_prov.n, ine_ccaa, ine_ccaa.n, year, habitantes) %>%
+  distinct() %>% 
+  arrange(ine_prov.n, year) %>% 
+  group_by(ine_prov, ine_prov.n) %>% 
+  mutate(crec = habitantes - lag(habitantes)) %>% 
+  mutate(crec_percent = crec/first(habitantes)) %>% 
+  mutate(indice = habitantes / first(habitantes) *100 ) 
+```
+
+
+
+Aquí tendría que ir un spaguetti plot
+
+- Good: <https://www.data-to-viz.com/caveat/spaghetti.html>
+
+- Good: <http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph>
+
+<br>
+
+- Igual podría hacere con <https://rkabacoff.github.io/datavis/Time.html#dummbbell-charts>
+
+- o un heatmap: <https://rkabacoff.github.io/datavis/Other.html#heatmaps>
+
+## Municipios con más mujeres que hombres
+
+```{r, eval = FALSE}
+df_result <- df %>% 
+  filter(year == 2020) %>% 
+  #filter(poblacion != "Total") %>% 
+  select(-c(year, ine_muni.n.orig)) %>% 
+  pivot_wider(names_from = c("poblacion"), values_from = c("values")) %>% 
+  mutate(mas_mujeres_nn = Mujeres - Hombres) %>% 
+  mutate(mas_mujeres_percent = Mujeres / Hombres) %>% 
+  mutate(mas_mujeres_si = case_when(
+          mas_mujeres_nn > 0 ~ "Más mujeres",
+          mas_mujeres_nn < 0 ~ "Más hombres",
+          mas_mujeres_nn == 0 ~ "Igual número",
+          TRUE ~ NA_character_))
+
+zz <- df_result %>% filter(Total > 10000) %>% 
+  select(ine_muni.n, ine_prov.n, Total, Hombres, Mujeres, mas_mujeres_nn, mas_mujeres_percent, mas_mujeres_si )
+```
+
+Pues el gráfico . las mujeres en violeta
+
+Igual el gráfico solo deber tener las poblaciones de mas de 10000 habitantes
+A lo mejor puedes hacer un gráfico de 2 niveles. % de mujeres y población
+
+
+
+- graficos chulos para el post:
+
+La tabla parecida a esta: <https://www.eldiario.es/sociedad/vacuna-covid-19-mapas-graficos-proceso-vacunacion-espana-mundo-febrero-10_1_6782953.html> y los gráficos tb son muy chulos
+
+otro gráfico chulo: <https://twitter.com/walyt/status/1358874552743387139>
+
+
+- el de numeroteca: <https://twitter.com/numeroteca/status/1360011722434699267>
+
+- tb chulo: <https://twitter.com/JulenBollain/status/1360136564626649089>

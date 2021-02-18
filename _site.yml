@@ -1,0 +1,47 @@
+name: "pjperez.web"
+title: "Pedro J. Pérez"
+description: |
+  Pedro J. Pérez website
+theme: assets/theme_frie_pjp.css  #- 
+output_dir: "docs"
+favicon: imagenes/favicon.ico
+base_url: https://perezp44.github.io/pjperez.web           #- es bueno ponerlo
+repository_url: https://github.com/perezp44/pjperez.web   #- es bueno ponerlo
+creative_commons: CC BY
+twitter:
+  site: "@pjpv4444"
+#- esto es realmente lo que crea el blog (la colección de posts y 
+#-se pueden crear varios blogs en la misma wbepage solo hay que crear otra sección como esta collection: posts_2 :
+collections:  
+  posts:
+    categories: true
+    #creative_commons: CC BY
+    categories_metadata: true
+    authors_metadata: false
+    feed_iems_max: 20 # default
+    #disqus: statistical-genetics
+    share: [twitter, linkedin]   #- para que la gente pueda enviarlo facilmente
+    #subscribe: _subscribe.html  #- no xq se subscriben a Tanaka
+    custom: _custom.html         #- esto mola es como un aside en el blog
+navbar:
+  search: true
+  source_url: true
+  logo:
+    image: imagenes/ababol_redondeado.png
+  left: 
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+  right: 
+    - text: "Blog"
+      href: 01_blog.html
+    - text: "R & Flowers"
+      href: 02_Rflowers.html
+    - text: "About"
+      href: 03_about.html
+    #- icon: fab fa-github
+    #  href: https://github.com/perezp44/pjperez.web  #- has de cambiarlo   
+output:
+  distill::distill_article:
+    toc: true
+    #css: styles.css    #- tiene q estar en la carpeta raiz del proyecto     

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Pedro J. Pérez</title>
+    <link>https://perezp44.github.io/pjperez.web</link>
+    <atom:link href="https://perezp44.github.io/pjperez.web/01_blog.xml" rel="self" type="application/rss+xml"/>
+    <description>Pedro J. Pérez website
+</description>
+    <image>
+      <title>Pedro J. Pérez</title>
+      <url>https://perezp44.github.io/pjperez.web/imagenes/favicon.ico</url>
+      <link>https://perezp44.github.io/pjperez.web</link>
+    </image>
+    <generator>Distill</generator>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Población municipal</title>
+      <dc:creator>Pedro J. Pérez</dc:creator>
+      <link>https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal</link>
+      <description>Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero para su uso posterior.</description>
+      <category>datos INE</category>
+      <category>municipios</category>
+      <category>población</category>
+      <category>población municipal</category>
+      <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal</guid>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal/plots/2021_02_10_poblacion_municipal_01.png" medium="image" type="image/png" width="2813" height="2362"/>
+    </item>
+    <item>
+      <title>Nombre de los municipios españoles</title>
+      <dc:creator>Pedro J. Pérez</dc:creator>
+      <link>https://perezp44.github.io/pjperez.web/posts/2021-02-09-nombres-municipios</link>
+      <description>Se descarga y arregla la relación de municipios españoles de 2021 publicada hoy por el INE. Durante 2020, cinco municipios cambiaron de nombre. En 2020 no hubo fusiones ni segregaciones, con lo que en 2021 continúan habiendo 8.131 municipios en España.</description>
+      <category>datos INE</category>
+      <category>municipios</category>
+      <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-09-nombres-municipios</guid>
+      <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://perezp44.github.io/pjperez.web/posts/2021-02-09-nombres-municipios/imagenes/tabla_relacion_muni.png" medium="image" type="image/png" width="798" height="238"/>
+    </item>
+  </channel>
+</rss>

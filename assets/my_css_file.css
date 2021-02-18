@@ -1,0 +1,59 @@
+/*  ----------------- fichero CSS para tunear nuestro html  -------------- */ 
+
+/* definiendo estilos de los títulos de primer nivel (h1) */ 
+h1 {
+  color: darkblue;
+  font-size: 35px;
+  margin-top: 45px;       /* dejar algo de espacio (45 pixeles) antes de un título de primer nivel*/ 
+  margin-bottom: 35px; }  /* dejar algo de espacio despúes de un título de primer nivel*/ 
+
+
+/* definiendo estilos de los títulos de h2 a h5 nivel */ 
+h2, h3 { 
+  color: darkblue;
+  margin-top: 25px;       /* dejar algo de espacio (45 pixeles) antes de un título de primer nivel*/ 
+  margin-bottom: 20px;    /* dejar algo de espacio despúes de un título de primer nivel*/ 
+  margin-left: 5px; }  /* dejar espacio a la izquierda*/ 
+
+/* definiendo estilos de los títulos de h2 a h5 nivel */ 
+
+h4, h5 { 
+  color: darkblue;
+  margin-top: 20px;       /* dejar algo de espacio (45 pixeles) antes de un título de primer nivel*/ 
+  margin-bottom: 20px;   /* dejar algo de espacio despúes de un título de primer nivel*/ 
+  margin-left: 10px; }   /* dejar espacio a la izquierda*/ 
+
+
+
+/* definiendo estilos de los párrafos */ 
+p {
+  text-align: justify; }        /* justificar el texto del body */      
+  
+
+/* para hacer cajas de texto de colorines*/
+
+.caja-darkkhaki { background-color:#bdb76b; border-radius: 4px; padding: 13px;}
+
+.caja-gris-gainboro { background-color:#DCDCDC; border-radius: 4px; padding: 13px; 
+                 border: solid 8px black; }
+
+.caja-linea-verde {  color: #004346;
+  background-color: #fff;
+  border-top: 4pt solid #09bc8a;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  padding: 23px 10px 21px 10px;
+}
+
+
+
+/* para hacer lineas de colores */
+.linea-black {
+  border-top: 1px solid black;
+}
+
+
+.linea-red {
+  border-top: 2px dashed red;
+}

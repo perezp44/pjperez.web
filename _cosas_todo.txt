@@ -1,0 +1,23 @@
+#- cosas a hacer -----------------------------------------
+
+#- leer esto: https://rstudio4edu.github.io/rstudio4edu-book/distill-care.html
+#- tener cuidado si quieres crear un Readme, no es tan facil, lo explican arriba
+
+#- q los chunks de código no se salgan
+
+#- enterarme bien de lo de code_folding: https://github.com/rstudio/distill/issues/160   https://github.com/ijlyttle/codefolder
+Por lo que entiendo, lo has de poner en el yaml para que funciones, y luego ya cada chunk lo puedes cambiar
+ Esto tb vale para hacer un code folding
+
+<details closed> 
+<summary>Code: Load packages</summary> 
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(extrafont)
+```
+</details>
+  
+
+#- Mirar las preguntas Distill en RStudio: https://community.rstudio.com/tag/distill
+

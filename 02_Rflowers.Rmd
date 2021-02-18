@@ -1,0 +1,16 @@
+---
+title: "R & flowers"
+description: |
+  ¿Qué es esto de R & flowers?
+---
+
+
+```{css, echo = FALSE}
+.thumbnail {
+  border: 1px solid black;
+}
+```
+
+
+Nada, que dejo hueco para el futuro blog `R&flowers forever`.
+

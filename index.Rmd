@@ -1,0 +1,39 @@
+---
+title: "pedro.j.perez website"
+image: "foto_pedro-perez.jpg"
+links:
+  - label: Twitter
+    url: "https://twitter.com/pjpv4444"
+  - label: GitHub
+    url: "https://github.com/perezp44"
+  - label: Email
+    url: "mailto:pedro.j.perez@uv.es"
+site: distill::distill_website
+---
+
+### Bienvenido
+
+Mi nombre es Pedro J. Pérez y soy profesor del departamento de Análisis Económico de la Universitat de València. 
+
+<aside>
+```{r, echo = FALSE, out.width = "45%"}
+knitr::include_graphics("imagenes/foto_pjp_redondeada.png")
+```
+</aside>
+
+Esta es mi página web personal. La he construido por varias razones, una de ellas aprender sobre programación, `r fontawesome::fa(name = "r-project", fill = "steelblue")` y datos. 
+
+Otra razón, la principal, es que me va a servir para alojar algunos artículos en el [blog](01_blog.html). 
+
+
+
+Como explico un poco en [About](03_about.html), los posts los escribo principalmente para mi, pero claro siempre confías/crees que alguien los leerá y que a alguien le gustarán, o le servirán, o encontrarán errores, o ... o ..., así que, a pesar de que casi no uso las redes sociales:
+
+  
+  - `r fontawesome::fa("twitter")` [`@pjpv4444`](https://twitter.com/pjpv4444)
+  - `r fontawesome::fa("github")` [`@perezp44`](https://github.com/perezp44)
+  
+El mail de toda la vida sí:
+
+  - `r fontawesome::fa("envelope")` [`pedro.j.perez@uv.es`](mailto:pedro.j.perez@uv.es)
+
