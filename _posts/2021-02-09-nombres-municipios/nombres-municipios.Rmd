@@ -10,7 +10,7 @@ date: 2021-02-09
 #base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
 #bibliography: ref.bib
 #slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
-#preview: imagenes/ine_atlas_renta.png
+preview: imagenes/blog_word_cloud.png
 twitter:
   creator: "@pjpv4444"
 categories: [datos INE, municipios]
@@ -160,7 +160,17 @@ df_joined %>%
 ```
 
 
-La verdad es que con estos datos (los nombres de los municipios) me quedan varias preguntas/curiosidades por satisfacer:
+## Curiosidades
+
+Primero, simplemente un wordcloud con algunos nombres curiosos. Creo que alguien de "Aliaga del Lagarto" me va a matar, pero es que no lo he podido evitar.^[Lo siento Pili 😇]   🤣 🦎 🤣
+
+
+```{r, layout="l-body", echo = FALSE, out.width = "93%",  fig.height= 7, code_folding = FALSE}
+knitr::include_graphics("./imagenes/blog_word_cloud.png")
+```
+
+
+La verdad, si consigo parar de reirme, es que con estos datos me quedan varias preguntas/curiosidades por satisfacer:
 
 - ¿Qué municipio ha cambiado más veces de nombre?
 
