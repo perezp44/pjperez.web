@@ -222,13 +222,13 @@ p <- p + ggtext::geom_textbox(
 	#box.padding = grid::unit(rep(0.1, 4), "pt") 
 	fill = "white", box.color = "black", family = "Tahoma", hjust = 0L)
 
-ggsave(p, filename = here::here("plots", "2021_02_10_poblacion_municipal_01.png"), 
+ggsave(p, filename = here::here("plots", "2021_02_10_poblacion_municipal_01a.png"), 
        device = "png", width = 29, height = 20, units = "cm")
-knitr::plot_crop(here::here("plots", "2021_02_10_poblacion_municipal_01.png"))
+knitr::plot_crop(here::here("plots", "2021_02_10_poblacion_municipal_01a.png"))
 ```
 
 
 ```{r, echo = FALSE, layout="l-page"}
-knitr::include_graphics("./plots/2021_02_10_poblacion_municipal_01.png")
+knitr::include_graphics("./plots/2021_02_10_poblacion_municipal_01a.png")
 ```
 
