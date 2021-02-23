@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-_scripts/
+_scripts_gestion_blog/
+_scripts_analisis/
 _tareas-a-hacer.R
+_cosas_todo.txt
   

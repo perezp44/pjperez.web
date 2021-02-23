@@ -2472,6 +2472,12 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+  <link href="../../site_libs/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.css" rel="stylesheet" />
+  <script src="../../site_libs/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.js"></script>
+  <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+  <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+  <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2579,7 +2585,7 @@ gtag('config', 'UA-71846326-7');
 </code></pre>
 </div>
 </details>
-<p><img src="imagenes/nomenclator_ine_disenyo_registro.png" width="498" /></p>
+<p><img src="imagenes/nomenclator_ine_disenyo_registro.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <p>Se aprecia que, además de <a href="https://es.wikipedia.org/wiki/Municipio">municipios</a>, en el Nomenclator hay <a href="https://es.wikipedia.org/wiki/Entidad_colectiva_de_poblaci%C3%B3n">entidades colectivas</a>, <a href="https://es.wikipedia.org/wiki/Entidad_singular_de_poblaci%C3%B3n">entidades singulares</a>, <a href="https://es.wikipedia.org/wiki/N%C3%BAcleo_de_poblaci%C3%B3n">nucleos</a> y <a href="https://es.wikipedia.org/wiki/Diseminado">diseminados</a>. Como veis no es que sea fácil-fácil entender los pormenores de estas categorías. Como ejemplo, claro y diáfano al menos para mi: mi pueblo, Pancrudo, es una entidad singular y un núcleo que pertenece al municipio de Pancrudo. Portalrubio, otro pueblo, es otra entidad singular y núcleo del municipio de Pancrudo. Lo mismo ocurre para Cervera del Rincón y Cuevas de Portalrubio. En el municipio de Pancrudo no hay entidades colectivas ni diseminados.</p>
 <p>La verdad es que el procesado de los 11 ficheros me costó un poquito: menos mal que medio me gusta y me “relaja”.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
@@ -2633,6 +2639,7 @@ gtag('config', 'UA-71846326-7');
 <span class='co'>#- para guardar el plot</span>
 <span class='fu'>ggsave</span><span class='op'>(</span><span class='va'>p</span>, filename <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"evolucion_poblacion_pancrudo.png"</span><span class='op'>)</span>,
        device <span class='op'>=</span> <span class='st'>"png"</span>, width <span class='op'>=</span> <span class='fl'>32</span>, height <span class='op'>=</span> <span class='fl'>20</span>, units <span class='op'>=</span> <span class='st'>"cm"</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 </details>
@@ -2645,7 +2652,7 @@ gtag('config', 'UA-71846326-7');
 </code></pre>
 </div>
 </details>
-<p><img src="imagenes/evolucion_poblacion_pancrudo.png" width="1890" /></p>
+<p><img src="imagenes/evolucion_poblacion_pancrudo.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <p>Como veis Pancrudo es pequeñito, pero es la capital del municipio. En 2015 llegamos a un mínimo de 66 habitantes pero parece que recuperamos. Cuevas, Cervera y P️ortalrubio también intentan mantenerse. Ánimo!! 💪🏿⬆</p>
 <h3 id="algunas-curiosidades">Algunas curiosidades</h3>
@@ -2681,6 +2688,8 @@ gtag('config', 'UA-71846326-7');
   <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>ine_muni</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>NN <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>select</span><span class='op'>(</span><span class='va'>ine_muni</span>, <span class='va'>ine_muni.n</span>, <span class='va'>ine_prov.n</span>, <span class='va'>NN</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>distinct</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>zz_Villalba</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ine_muni</span> <span class='op'>==</span> <span class='fl'>27065</span><span class='op'>)</span>
+
+
 </code></pre>
 </div>
 </details>
