@@ -1,7 +1,7 @@
 ---
 title: "Nombre de los municipios españoles"
 description: |
-  Se descarga y arregla la relación de municipios españoles de 2021 publicada hoy por el INE. Durante 2020, cinco municipios cambiaron de nombre. En 2020 no hubo fusiones ni segregaciones, con lo que en 2021 continúan habiendo 8.131 municipios en España.
+  Se descarga y arregla la relación de municipios españoles de 2021 publicada hoy por el INE. Durante 2020, cinco municipios cambiaron de nombre. En 2020 no hubo fusiones ni segregaciones, con lo que en 2021 continúan habiendo 8.131 municipios en España. Para finalizar el post se muestran algunas curiosidades como que, durante el periodo 1996-2020, 914 de ellos, es decir, el 11,23% de los municipios españoles cambiaron alguna vez de nombre, 5 de ellos hasta 3 veces. 
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València

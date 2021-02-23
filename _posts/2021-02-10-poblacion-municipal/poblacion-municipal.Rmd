@@ -1,7 +1,7 @@
 ---
-title: "Población municipal"
+title: "Población municipal 2000-2020"
 description: |
-  Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero para su uso posterior.
+  Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero. Con él se realiza una coropleta con el crecimiento de la población municipal durante el periodo 2000-2020. En el mapa se aprecia que las zonas donde ha crecido más la poblacion son el litoral mediterraneo, Canarias, Baleares, zona de influencia de Madrid y en menor media el País Vasco.
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
@@ -13,7 +13,7 @@ date: 2021-02-10
 #preview: imagenes/ine_atlas_renta.png
 twitter:
   creator: "@pjpv4444"
-categories: [datos INE, municipios, población, población municipal]
+categories: [datos INE, Padron continuo, municipios, poblacion, poblacion municipal]
 output:
   distill::distill_article:
     self_contained: false

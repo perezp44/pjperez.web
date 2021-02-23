@@ -26,7 +26,7 @@ collections:
     custom: _custom.html         #- esto mola es como un aside en el blog
 navbar:
   search: true
-  source_url: true
+  source_url: true   #- pone el icono y link a Github
   logo:
     image: imagenes/ababol_redondeado.png
   left: 
@@ -40,9 +40,7 @@ navbar:
       href: 02_Rflowers.html
     - text: "About"
       href: 03_about.html
-    #- icon: fab fa-github
-    #  href: https://github.com/perezp44/pjperez.web  #- has de cambiarlo   
 output:
   distill::distill_article:
     toc: true
-    #css: styles.css    #- tiene q estar en la carpeta raiz del proyecto     
+    #css: theme_frie_pjp.css    #- tiene q estar en la carpeta raiz del proyecto     

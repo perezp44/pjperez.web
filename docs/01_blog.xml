@@ -12,16 +12,29 @@
       <link>https://perezp44.github.io/pjperez.web</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Población municipal</title>
+      <title>Nomenclator: ¿municipio, pueblo o entidad?</title>
+      <dc:creator>Pedro J. Pérez</dc:creator>
+      <link>https://perezp44.github.io/pjperez.web/posts/2021-02-22-nomenclator-municipio-pueblo-o-entidad</link>
+      <description>Se descargan y arreglan los datos del Nomneclator del INE. Los necesito para ver la evolución de la población de mi pueblo, Pancrudo. O ¿es municipio? ¿o entidad singular? ¿o nucleo? Para mi es mi pueblo diga lo que diga el INE.</description>
+      <category>datos INE</category>
+      <category>Nomenclator</category>
+      <category>municipios</category>
+      <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-22-nomenclator-municipio-pueblo-o-entidad</guid>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://perezp44.github.io/pjperez.web/posts/2021-02-22-nomenclator-municipio-pueblo-o-entidad/imagenes/evolucion_poblacion_pancrudo.png" medium="image" type="image/png" width="3779" height="2362"/>
+    </item>
+    <item>
+      <title>Población municipal 2000-2020</title>
       <dc:creator>Pedro J. Pérez</dc:creator>
       <link>https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal</link>
-      <description>Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero para su uso posterior.</description>
+      <description>Se descargan y arreglan los datos de población municipal procedentes de la estadística del Padrón continuo. El INE ofrece los datos en un único fichero .zip que contiene 24 archivos, uno para cada año con datos: 1996 y 1998 a 2020. Trás unos pequeños problemas se fusionan los datos en un único fichero. Con él se realiza una coropleta con el crecimiento de la población municipal durante el periodo 2000-2020. En el mapa se aprecia que las zonas donde ha crecido más la poblacion son el litoral mediterraneo, Canarias, Baleares, zona de influencia de Madrid y en menor media el País Vasco.</description>
       <category>datos INE</category>
+      <category>Padron continuo</category>
       <category>municipios</category>
-      <category>población</category>
-      <category>población municipal</category>
+      <category>poblacion</category>
+      <category>poblacion municipal</category>
       <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal</guid>
       <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal/plots/2021_02_10_poblacion_municipal_01a.png" medium="image" type="image/png" width="2813" height="2362"/>
@@ -30,7 +43,7 @@
       <title>Nombre de los municipios españoles</title>
       <dc:creator>Pedro J. Pérez</dc:creator>
       <link>https://perezp44.github.io/pjperez.web/posts/2021-02-09-nombres-municipios</link>
-      <description>Se descarga y arregla la relación de municipios españoles de 2021 publicada hoy por el INE. Durante 2020, cinco municipios cambiaron de nombre. En 2020 no hubo fusiones ni segregaciones, con lo que en 2021 continúan habiendo 8.131 municipios en España.</description>
+      <description>Se descarga y arregla la relación de municipios españoles de 2021 publicada hoy por el INE. Durante 2020, cinco municipios cambiaron de nombre. En 2020 no hubo fusiones ni segregaciones, con lo que en 2021 continúan habiendo 8.131 municipios en España. Para finalizar el post se muestran algunas curiosidades como que, durante el periodo 1996-2020, 914 de ellos, es decir, el 11,23% de los municipios españoles cambiaron alguna vez de nombre, 5 de ellos hasta 3 veces.</description>
       <category>datos INE</category>
       <category>municipios</category>
       <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-09-nombres-municipios</guid>
