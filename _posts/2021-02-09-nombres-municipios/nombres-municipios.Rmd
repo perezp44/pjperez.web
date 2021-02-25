@@ -184,10 +184,11 @@ Para contestar estas dos preguntas necesito primero procesar los datos de poblac
 
 Bueno ya vale por hoy, con este post se trataba tan solo de iniciar el blog y ver si todo funcionaba. Me quedan algunas cosas por arreglar pero el blog looks nice. Veremos cuanto me dura!!
 
+### Retomo el post
 
-[Vuelvo a rescribir este post el 21 de febrero].  Han pasado unos días y resulta que ya he procesado los datos de población municipal ^[Los procesé para redactar el segundo post del blog], así que ya se contestar a las 2 preguntas.
+Vuelvo a retomar este post el 21 de febrero, ¿qué por qué? pues porque han pasado unos días y resulta que ya he procesado los datos de población municipal ^[Los procesé para redactar el segundo post del blog], así que ya sé contestar a las 2 preguntas/curiosidades.
 
-¿Qué cuantos municipios han cambiado su nombre? Como puede verse en la tabla de abajo, de los 8.131 municipios que había en España en 2020, 914 de ellos, el 11,23%, cambiaron alguna vez de nombre.
+¿Cuantos municipios han cambiado su nombre? Como puede verse en la tabla de abajo, de los 8.131 municipios que había en España en 2020, 914 de ellos, el 11,23%, cambiaron alguna vez de nombre.
 
 
 ```{r}
