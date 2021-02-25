@@ -63,7 +63,7 @@ De forma que la cifra oficial de **población en España a 1 de enero de 2020 fu
 
 El INE ofrece [aquí](https://www.ine.es/dynt3/inebase/es/index.htm?padre=517&capsel=525)^[El enlace de descarga es [este](https://www.ine.es/pob_xls/pobmun.zip)] los datos de población a nivel municipal. Los datos están en un archivo comprimido que contiene un fichero para cada año desde 1996, con la excepción de 1997, con la población de los municipios españoles (por genero) a 1 de enero de cada año.^[El fichero de 1996 tiene las cifras de población referenciadas a 1 de mayo]
 
-Vamos al lio, hay que descargar, arreglar/limpiar y fusionar los distintos ficheros. El objetivo es tener los datos de todos los años en un único fichero. Esto yo ya lo había hecho hace tiempo, así que solo me ha tocado añadir los datos de 2020 y arreglar un poco el código. El código completo lo tienes [aquí]
+Vamos al lio, hay que descargar, arreglar/limpiar y fusionar los distintos ficheros. El objetivo es tener los datos de todos los años en un único fichero. Esto yo ya lo había hecho hace tiempo, así que solo me ha tocado añadir los datos de 2020 y arreglar un poco el código. 
 
 La verdad es que, al menos para mi, no es fácil fusionar los 24 ficheros de población municipal que ofrece el INE. Hay algunas inconsistencias en los nombres de los ficheros y variables que no siempre es fácil detectar, pero bueno ya lo tengo hecho.^[La verdad es que cuando estás arreglando un dataset y ves fallos tontos o inconsistencias que te van dificultando el proceso, maldices y juras como 100 veces en arameo, pero ninguna crítica al INE. Entiendo que intentan hacer las cosas lo mejor que pueden con sus restricciones de tiempo, personal etc ... y que tienen sus propios objetivos y su propia historia: en 1998, fecha de cuando datan algunos de los archivos, no se tenían ni los mismos conocimientos, ni herramientas, ni forma de trabajar etc... etc.... Además, cualquiera que vea mi código puede pensar lo mismo de mi, que no soy consistente etc ... pues sí, lo hago como sé y puedo con el tiempo que le quiero dedicar.], ^[De verdad, ninguna crítica al INE, pero quizás sí que el INE debería crear, igual ya existe, algún canal para hacer sugerencias para favorecer la usabilidad de los datos. Para un usuario medio creo que no es fácil fusionar estos datos ni detectar las inconsistencias para fusionarlos, así que mi petición al INE consistiría en que ofreciese, además de los ficheros tal y como están ahora, no tocarlos por favor, un enlace para descargar los ficheros ya fusionados]
 
@@ -184,11 +184,6 @@ my_vv <- expr(crec_porcentual_d)  #- AQUI-AQUI   (para la leyenda)
 my_vv_2 <- expr(crec_porcentual.n)  #- AQUI-AQUI  para el label text
 
 #janitor::tabyl(pob_muni, crec_porcentual_d)
-my_subtitle <- glue::glue(
-  "En 2000-2020, la población en España creció un 17,16%.
-   Por municipios, un 63% presentaron un <span style='color:#ee3b3b'>crecimiento negativo</span>,\n
-   un 15% tuvieron un <span style='color:#8ee5ee'>crecimiento inferior a la media</span> española, mientras que 1.806 municipios,\n
-   un 22%, presentaron <span style='color:#9acd32'>crecimiento superior a la media</span>.")
 
 #- Plot con labels
 p <- ggplot() + 
@@ -208,23 +203,7 @@ p <- ggplot() +
   scale_fill_manual(name = NULL,  values = c("#ee3b3b", "#8ee5ee",  "#9acd32")) +
   labs(title = "Crecimiento de la población municipal: 2000-2020",
        subtitle = my_subtitle, x = "", y = "",
-       caption = "Datos de población del INE. Geometrías del paquete LAU2boundaries4spain. Visualización: @pjpv4444")  +  
-  my_theme_maps + 
-  theme(plot.subtitle = ggtext::element_markdown(size = 11, 
-          family = "Roboto Condensed", face = "bold", color = "dimgrey")) 
-
-my_textito <- glue::glue("Los municipios con crecimientos de población <span style='color:#9acd32'>superiores a la media</span> se concentran a lo largo de la costa mediterranea, Baleares, Canarias, área de influencia de Madrid y en menor medida en el País Vasco.")
-   
-p <- p + ggtext::geom_textbox(
-	aes(label = my_textito, x = -12.1, y = 40.0), 
-	color = "black", size = 3.5, width = grid::unit(0.25, "npc"),
-	# remove box padding, since we have removed the box outline
-	#box.padding = grid::unit(rep(0.1, 4), "pt") 
-	fill = "white", box.color = "black", family = "Tahoma", hjust = 0L)
-
-ggsave(p, filename = here::here("plots", "2021_02_10_poblacion_municipal_01a.png"), 
-       device = "png", width = 29, height = 20, units = "cm")
-knitr::plot_crop(here::here("plots", "2021_02_10_poblacion_municipal_01a.png"))
+       caption = "Datos de población del INE. Geometrías del paquete LAU2boundaries4spain. Visualización: @pjpv4444") 
 ```
 
 

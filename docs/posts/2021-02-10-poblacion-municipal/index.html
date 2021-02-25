@@ -2578,7 +2578,7 @@ gtag('config', 'UA-71846326-7');
 <p>De forma que la cifra oficial de <strong>población en España a 1 de enero de 2020 fue de 47.450.795 personas</strong>; es decir, 424.587 más que en 2019. Pero, ¿cómo está distribuida esa población por los 8.131 municipios españoles?</p>
 <h2 id="datos">Datos</h2>
 <p>El INE ofrece <a href="https://www.ine.es/dynt3/inebase/es/index.htm?padre=517&amp;capsel=525">aquí</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> los datos de población a nivel municipal. Los datos están en un archivo comprimido que contiene un fichero para cada año desde 1996, con la excepción de 1997, con la población de los municipios españoles (por genero) a 1 de enero de cada año.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<p>Vamos al lio, hay que descargar, arreglar/limpiar y fusionar los distintos ficheros. El objetivo es tener los datos de todos los años en un único fichero. Esto yo ya lo había hecho hace tiempo, así que solo me ha tocado añadir los datos de 2020 y arreglar un poco el código. El código completo lo tienes [aquí]</p>
+<p>Vamos al lio, hay que descargar, arreglar/limpiar y fusionar los distintos ficheros. El objetivo es tener los datos de todos los años en un único fichero. Esto yo ya lo había hecho hace tiempo, así que solo me ha tocado añadir los datos de 2020 y arreglar un poco el código.</p>
 <p>La verdad es que, al menos para mi, no es fácil fusionar los 24 ficheros de población municipal que ofrece el INE. Hay algunas inconsistencias en los nombres de los ficheros y variables que no siempre es fácil detectar, pero bueno ya lo tengo hecho.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <p>Como nadie va a mirar mi código para ver cuales son esas inconsistencias a la hora de fusionar los ficheros, señalaré algunas:</p>
 <ul>
@@ -2686,11 +2686,6 @@ gtag('config', 'UA-71846326-7');
 <span class='va'>my_vv_2</span> <span class='op'>&lt;-</span> <span class='fu'>expr</span><span class='op'>(</span><span class='va'>crec_porcentual.n</span><span class='op'>)</span>  <span class='co'>#- AQUI-AQUI  para el label text</span>
 
 <span class='co'>#janitor::tabyl(pob_muni, crec_porcentual_d)</span>
-<span class='va'>my_subtitle</span> <span class='op'>&lt;-</span> <span class='fu'>glue</span><span class='fu'>::</span><span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span>
-  <span class='st'>"En 2000-2020, la población en España creció un 17,16%.
-   Por municipios, un 63% presentaron un &lt;span style='color:#ee3b3b'&gt;crecimiento negativo&lt;/span&gt;,\n
-   un 15% tuvieron un &lt;span style='color:#8ee5ee'&gt;crecimiento inferior a la media&lt;/span&gt; española, mientras que 1.806 municipios,\n
-   un 22%, presentaron &lt;span style='color:#9acd32'&gt;crecimiento superior a la media&lt;/span&gt;."</span><span class='op'>)</span>
 
 <span class='co'>#- Plot con labels</span>
 <span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2710,23 +2705,7 @@ gtag('config', 'UA-71846326-7');
   <span class='fu'>scale_fill_manual</span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span>,  values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#ee3b3b"</span>, <span class='st'>"#8ee5ee"</span>,  <span class='st'>"#9acd32"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Crecimiento de la población municipal: 2000-2020"</span>,
        subtitle <span class='op'>=</span> <span class='va'>my_subtitle</span>, x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>""</span>,
-       caption <span class='op'>=</span> <span class='st'>"Datos de población del INE. Geometrías del paquete LAU2boundaries4spain. Visualización: @pjpv4444"</span><span class='op'>)</span>  <span class='op'>+</span>  
-  <span class='va'>my_theme_maps</span> <span class='op'>+</span> 
-  <span class='fu'>theme</span><span class='op'>(</span>plot.subtitle <span class='op'>=</span> <span class='fu'>ggtext</span><span class='fu'>::</span><span class='fu'><a href='https://wilkelab.org/ggtext/reference/element_markdown.html'>element_markdown</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>11</span>, 
-          family <span class='op'>=</span> <span class='st'>"Roboto Condensed"</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>, color <span class='op'>=</span> <span class='st'>"dimgrey"</span><span class='op'>)</span><span class='op'>)</span> 
-
-<span class='va'>my_textito</span> <span class='op'>&lt;-</span> <span class='fu'>glue</span><span class='fu'>::</span><span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"Los municipios con crecimientos de población &lt;span style='color:#9acd32'&gt;superiores a la media&lt;/span&gt; se concentran a lo largo de la costa mediterranea, Baleares, Canarias, área de influencia de Madrid y en menor medida en el País Vasco."</span><span class='op'>)</span>
-   
-<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='va'>p</span> <span class='op'>+</span> <span class='fu'>ggtext</span><span class='fu'>::</span><span class='fu'><a href='https://wilkelab.org/ggtext/reference/geom_textbox.html'>geom_textbox</a></span><span class='op'>(</span>
-  <span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>my_textito</span>, x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>12.1</span>, y <span class='op'>=</span> <span class='fl'>40.0</span><span class='op'>)</span>, 
-  color <span class='op'>=</span> <span class='st'>"black"</span>, size <span class='op'>=</span> <span class='fl'>3.5</span>, width <span class='op'>=</span> <span class='fu'>grid</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='st'>"npc"</span><span class='op'>)</span>,
-  <span class='co'># remove box padding, since we have removed the box outline</span>
-  <span class='co'>#box.padding = grid::unit(rep(0.1, 4), "pt") </span>
-  fill <span class='op'>=</span> <span class='st'>"white"</span>, box.color <span class='op'>=</span> <span class='st'>"black"</span>, family <span class='op'>=</span> <span class='st'>"Tahoma"</span>, hjust <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span>
-
-<span class='fu'>ggsave</span><span class='op'>(</span><span class='va'>p</span>, filename <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"plots"</span>, <span class='st'>"2021_02_10_poblacion_municipal_01a.png"</span><span class='op'>)</span>, 
-       device <span class='op'>=</span> <span class='st'>"png"</span>, width <span class='op'>=</span> <span class='fl'>29</span>, height <span class='op'>=</span> <span class='fl'>20</span>, units <span class='op'>=</span> <span class='st'>"cm"</span><span class='op'>)</span>
-<span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/plot_crop.html'>plot_crop</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"plots"</span>, <span class='st'>"2021_02_10_poblacion_municipal_01a.png"</span><span class='op'>)</span><span class='op'>)</span>
+       caption <span class='op'>=</span> <span class='st'>"Datos de población del INE. Geometrías del paquete LAU2boundaries4spain. Visualización: @pjpv4444"</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </details>

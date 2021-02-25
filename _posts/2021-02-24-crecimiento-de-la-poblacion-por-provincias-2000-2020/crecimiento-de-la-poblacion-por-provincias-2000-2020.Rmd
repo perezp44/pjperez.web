@@ -1,19 +1,19 @@
 ---
-title: "Municipios con más mujeres que hombres"
+title: "Crecimiento de la poblacion por provincias: 2000-2020"
 description: |
   Se descargan y arreglan los datos d
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
     orcid_id: 0000-0001-9375-6330
-date: 2021-02-23
+date: 2021-02-24
 #base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
 #bibliography: ref.bib
 #slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
 preview: imagenes/evolucion_poblacion_pancrudo.png
 twitter:
   creator: "@pjpv4444"
-categories: [datos INE, poblacion municipal]
+categories: [datos INE, poblacion]
 output:
   distill::distill_article:
     self_contained: false
@@ -50,8 +50,9 @@ htmltools::tagList(
 )
 ```
 
+En el [segundo post](https://perezp44.github.io/pjperez.web/posts/2021-02-10-poblacion-municipal/) realicé una visualización, un mapa, una coropleta, con el crecimiento de la población municipal para el periodo 2000-2020. En este post voy a repetir el análisis pero para la población provincial. En realidad sólo tengo cambiar unas pocas lineas de mi anterior análisis, pero a veces las cosas no son tan sencillas y te acabas liando.
 
-Bueno, ya cuarto post, voy directo a superar registros de mi primer blog. Todavia continuo con datos de población tengo unos cuantos por hacer. Hoy toca replicar un ejercicio que solemos hacer en clase: municipios en los que hay más muejers que hombres.
 
 
+Por supuesto, estos resultados solo nos ofrecen alguna pista parcial sobre la dinámica de la población. Por ejemplo Zamora es la provincia con una mayor descenso, un 16%, pero ¿ha sido este descenso un fenómeno sostenido o es algo reciente? Bueno ya que nos ponemos lo hacemos para todas las provincias
 
