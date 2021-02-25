@@ -171,12 +171,9 @@ zz_diseminados <- df %>% filter(tipo == "Diseminado") %>%
   group_by(ine_muni) %>% mutate(NN = n()) %>% 
   select(ine_muni, ine_muni.n, ine_prov.n, NN) %>% distinct()
 zz_Villalba <- df %>% filter(ine_muni == 27065)
-
-
 ```
 
-Pues resulta que en 2020 el municipio con más [entidades colectivas](https://es.wikipedia.org/wiki/Entidad_colectiva_de_poblaci%C3%B3n) era Lugo con 54. En cuanto a entidades singulares gana Mieres, en Asturias, con 520, ^[No me lo puedo creer 520!!], y 140 de ellos con cero habitantes. Ahora si que no entiendo nada!! Núcleos: en núcleos, Vigo en cabeza con 292. Por último diseminados: Villaba, municipio de Lugo, con 446. 
-
+Pues resulta que en 2020 el municipio con más [entidades colectivas](https://es.wikipedia.org/wiki/Entidad_colectiva_de_poblaci%C3%B3n) era Lugo con 54. En cuanto a entidades singulares gana Mieres, en Asturias, con 520, ^[No me lo puedo creer 520!!], y 140 de ellos con cero habitantes. Ahora si que no entiendo nada!! Núcleos: en núcleos, Vigo en cabeza con 292. Por último diseminados: Villaba, municipio de Lugo, con 446. Parece increíble, pero es real!!
 
 - Quería ver si estos datos sirven para enlazar series de población de  municipios que han sufrido segregaciones. La respuesta es sí. Por ejemplo, en el año 2019, El Palmar de Troya se segregó del municipio de Utrera. Veámoslo en un gráfico:^[Iba a hacerlo pero ... shit happens y lo tengo que dejar, creo que ya vale con el Nomenclator!!! Sí.]
 

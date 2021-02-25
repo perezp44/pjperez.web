@@ -12,7 +12,18 @@
       <link>https://perezp44.github.io/pjperez.web</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Crecimiento de la poblacion por provincias: 2000-2020</title>
+      <dc:creator>Pedro J. Pérez</dc:creator>
+      <link>https://perezp44.github.io/pjperez.web/posts/2021-02-24-crecimiento-de-la-poblacion-por-provincias-2000-2020</link>
+      <description>Se presentan 3 visualizaciones para el crecimiento de la población provincial en España para el periodo 2000-2020. La primera, una coropleta, complementa y reafirma el resultado del segundo post. La segunda, un spaghetti plot, que permite ver, hasta cierto punto, la evolución tenporal del crecimiento de la población provincial a lo largo del periodo. Por último se presentan 2 heatmaps que complementan al anterior gráfico.</description>
+      <category>datos INE</category>
+      <category>poblacion</category>
+      <guid>https://perezp44.github.io/pjperez.web/posts/2021-02-24-crecimiento-de-la-poblacion-por-provincias-2000-2020</guid>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://perezp44.github.io/pjperez.web/posts/2021-02-24-crecimiento-de-la-poblacion-por-provincias-2000-2020/imagenes/map_crec_pob_provincial.png" medium="image" type="image/png" width="2933" height="2362"/>
+    </item>
     <item>
       <title>Nomenclator: ¿municipio, pueblo o entidad?</title>
       <dc:creator>Pedro J. Pérez</dc:creator>
