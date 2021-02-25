@@ -20,7 +20,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true   
-    code_folding: true
+    #code_folding: true
     css: assets/theme_frie_pjp_posts.css 
 ---
 
@@ -84,7 +84,7 @@ La verdad es que el procesado de los 11 ficheros me costó un poquito: menos mal
 
 Ahora que he procesado los datos del Nomenclator, ya puedo hacer un gráfico con la evolución de los habitantes de mi pueblo y ya que me pongo la hago de los cuatro pueblos del municipio de Pancrudo.
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = TRUE, code_folding = TRUE}
 library(tidyverse)
 nomenclator <- readr::read_csv("/home/pjpv/Escritorio/my_datos_2021/datos/INE/nomenclator/ine_nomenclator_2010_2020.csv")
 

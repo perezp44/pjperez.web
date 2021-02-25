@@ -20,7 +20,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true   
-    code_folding: true
+    #code_folding: true
     css: assets/theme_frie_pjp_posts.css 
 ---
 
@@ -106,7 +106,7 @@ Para cerrar este post presento un gráfico con las pautas, durante el periodo 20
 
 
 
-```{r, eval = FALSE, layout="l-page", code_folding = TRUE}
+```{r, eval = FALSE, layout="l-page", code_folding = TRUE, echo = TRUE}
 #- quiero hacer un mapa con el crecimiento de la población en el periodo 2000-2020
 library(tidyverse)
 library(sf)

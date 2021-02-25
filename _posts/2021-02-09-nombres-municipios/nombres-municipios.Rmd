@@ -20,7 +20,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true   
-    code_folding: true
+    #code_folding: true
 ---
 
 ```{r setup, include=FALSE}
@@ -92,7 +92,7 @@ En un conjunto de datos tan simple que hay poco que hacer pero aún así voy a :
 
 Con este primer chunk descargo los datos en una carpeta temporal y los arreglo
 
-```{r, code_folding = TRUE}
+```{r, code_folding = TRUE, echo = TRUE}
 #- descargo los datos 
 url_descarga <- "https://www.ine.es/daco/daco42/codmun/diccionario21.xlsx"
 nombre_fichero <- "diccionario21.xlsx"
@@ -128,7 +128,7 @@ Bueno, pues para empezar el blog ya casi estaría, pero antes quiero comprobar l
 
 Importo el fichero a la memoria de R y lo arreglo un poco:
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, code_folding = TRUE}
 url_descarga <- "https://github.com/perezp44/archivos_download/blob/master/pob_municipal_2020.rds?raw=true"
 pob_mun_2020 <- readr::read_rds(file = url(url_descarga))
 pob_mun_2020 <- pob_mun_2020 %>% dplyr::filter(poblacion == "Total")
@@ -136,14 +136,14 @@ pob_mun_2020 <- pob_mun_2020 %>% dplyr::filter(poblacion == "Total")
 
 Fusiono el fichero de 2020 con la relación de nombres de los municipios españoles en 2021, que tenemos en `df`:
 
-```{r, echo = TRUE, results = "hide"}
+```{r, echo = TRUE, results = "hide", code_folding = TRUE}
 df_joined <- dplyr::full_join(df, pob_mun_2020) 
 nrow(df_joined) - nrow(df)
 ```
 
 Podemos ver que `df_joined` tiene `r nrow(df_joined) - nrow(df)` filas más que `df`, lo que significa, ya que no han habido en 2020 ni fusiones ni segregaciones de municipios, que durante 2020, `r nrow(df_joined) - nrow(df)` municipios cambiaron de nombre. Veámoslos:
 
-```{r, echo = TRUE, out.width = "93%"}
+```{r, echo = TRUE, out.width = "93%", code_folding = TRUE}
 codes_muni_cambian <- df_joined %>% dplyr::filter(is.na(ine_muni.year)) %>% 
                              pull(ine_muni)
 
@@ -162,7 +162,7 @@ df_joined %>%
 
 ## Curiosidades
 
-Primero, simplemente un wordcloud con algunos nombres curiosos. Creo que alguien de "Aliaga del Lagarto" me va a matar, pero es que no lo he podido evitar.^[Lo siento Pili 😇]   🤣 🦎 🤣
+Primero, simplemente un wordcloud con algunos nombres curiosos. Creo que alguien de "Aliaga del Lagarto" me va a matar, pero es que no lo he podido evitar.^[Lo siento Pili 😇]   🤣 🦎🦎 🤣
 
 
 ```{r, layout="l-body", echo = FALSE, out.width = "93%",  fig.height= 7, code_folding = FALSE}
@@ -191,7 +191,7 @@ Vuelvo a retomar este post el 21 de febrero, ¿qué por qué? pues porque han pa
 ¿Cuantos municipios han cambiado su nombre? Como puede verse en la tabla de abajo, de los 8.131 municipios que había en España en 2020, 914 de ellos, el 11,23%, cambiaron alguna vez de nombre.
 
 
-```{r}
+```{r, echo = TRUE, code_folding = TRUE}
 #- calcular los municipios que han cambiado de nombre y cuantas veces
 library(tidyverse)
 library(gt)
