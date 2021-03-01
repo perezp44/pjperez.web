@@ -83,10 +83,8 @@ Además, partiendo de los datos del Padrón continuo, el INE ofrece una [serie d
 
 - Estadística del Padrón de españoles residentes en el extranjero^[Seguro que le echo un vistazo cuando salgan los nuevos datos el 18 de marzo]
 
-- Apellidos y nombres más frecuentes^[Uno de los trabajos de los estudiantes este curso utilizaron estos datos. El trabajo está [aquí](https://dasdfg098.github.io/trabajo_BigData_equipo/)]
+- Apellidos y nombres más frecuentes^[En uno de los trabajos que los estudiantes elaboraron este curso, utilizaron estos datos. El trabajo está [aquí](https://dasdfg098.github.io/trabajo_BigData_equipo/) y el repo [aquí](https://github.com/dasdfg098/trabajo_BigData_equipo) ]
 
-
-Un conjunto de tablas en formato pcaxis con la población municipal por genero y alguna otra característica (edad y lugar de nacimiento desagregado y cruzado a varios niveles). Con estas tablas podría ver por ejemplo la composición por edad o nacionalidad de mi pueblo. El INE ofrece estas tablas en un fichero para el periodo 2015-2020 y un fichero individual para años anteriores. Seguro que lo haré!!
 
 
 ## Más detalles sobre las tablas del Padrón continuo
@@ -99,15 +97,18 @@ Hay seis tablas. Veámoslas:
 knitr::include_graphics("./imagenes/tablas_padron_municipios.png")
 ```
 
+El INE ofrece cada una de estas 6 tablas en un fichero para el periodo 2015-2020 y un fichero individual para años anteriores. 
+
 De las 6 tablas, procesaré la tercera, la quinta y la  sexta. Con los datos de la quinta tabla veré que municipios/provincias son más cerradas, en el sentido de que un mayor porcentaje de su población vive en el mismo municipio en el que nació. Con los datos de la sexta tabla, seguramente también veré que municipios/regiones tienen una población más joven y/o más centenarios. Todo jugar. Con los datos de cualquiera de las tablas puedo replicar uno de los análisis que ya hicimos en clase: ver en que municipios/provincias hay más mujeres que hombres. Ya lo hicimos en clase el curso pasado y salía algún resultado curioso.
 
-Para las secciones censales hay disponibles también seis tablas, parecidas a las que hay para los municipios, pero se centran más en la nacionalidad, y sólo están disponibles en formato PC-Axis, mientras que las de municipios se pueden descargar en varios formatos.
+Para las secciones censales hay disponibles también seis tablas, parecidas a las que hay para los municipios, pero se centran más en la nacionalidad, además hay un fichero por año y sólo están disponibles en formato PC-Axis, mientras que las de municipios se pueden descargar en varios formatos.
 
 
 ```{r, echo = FALSE, layout = "l-body-outset"}
 knitr::include_graphics("./imagenes/tablas_padron_secciones.png")
 ```
 
+El INE ofrece estas tablas en un fichero para el periodo 2015-2020 y un fichero individual para años anteriores. 
 
 
 
