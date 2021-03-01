@@ -6,7 +6,7 @@
       "description": "El blog tendrá, espero, posts sobre ciencia de datos, principalmente sobre análisis y manejo de datos.\n",
       "author": [],
       "contents": "\n\n\n.thumbnail {\n  border: 1px solid black;\n}\n\n\n\n\n",
-      "last_modified": "2021-03-01T20:58:31+01:00"
+      "last_modified": "2021-03-01T21:01:36+01:00"
     },
     {
       "path": "02_Rflowers.html",
@@ -14,7 +14,7 @@
       "description": "¿Qué es esto de R & flowers?",
       "author": [],
       "contents": "\n\n\n.thumbnail {\n  border: 1px solid black;\n}\n\nNada, que dejo hueco para el futuro blog R&flowers forever.\n\n\n\n",
-      "last_modified": "2021-03-01T20:58:32+01:00"
+      "last_modified": "2021-03-01T21:01:36+01:00"
     },
     {
       "path": "03_about.html",
@@ -22,14 +22,14 @@
       "description": "Algo más de información sobre el blog y sobre mi.",
       "author": [],
       "contents": "\nEsta es mi página web personal. Me va a servir principalmente para alojar algunos artículos en el blog.\nLa verdad es que me gusta escribir posts, tienes mucha más libertad que al escribir un informe o un artículo académico. Los posts no tienen porque estar perfectos, cuando te apetece los puedes dejar, aunque no estén perfectos ni acabados del todo.\nA pesar de que los posts no estén acabados, el pensar que alguien puede leerlos te hace pensar y reflexionar sobre lo que escribes, de forma que acaban siendo útiles, principalmente para uno mismo, para documentar análisis que has hecho o cosas que has aprendido que de otro modo olvidarías.\n\nRemember kids, the only difference between screwing around and science is writing it down — Adam Savage de MythBusters\n\nDe hecho, ya llevo una larga carrera como bloguero (“guiño-guiño”). Aquí están algunos de mis anteriores blogs:\nEl primero lo hice allá en 2016, utilicé Jekyll y (es una historia larga) lo llamé R & flowers. Hice la friolera de 10 posts, mi récord absoluto hasta el momento.\nEl segundo lo creé en 2018. Me pasé a blogdown que usa Hugo. Lo llamé R & flowers V. Es una larga historia lo que les paso a los números intermedios. Bajaron mis registros, sólo hice 6 posts.\nEn el tercero, ya en 2020, me pasé a Distill. Lo hice durante el confinamiento porque me pareció una buena idea hacer una página web para una asignatura, así que aproveche el tirón y creé R & flowers 0.1.3. Los registros se derrumbaron, sólo un post 👎. Que queréis, estábamos en pandemia!! Además tenía que hacer una página web para dar clase online. Se quedaron varios posts a medio escribir, eran sobre temas sanitarios, camas en hospitales …\nEl cuarto, este blog, ya no se llama R & flowers porque es una Distill webpage, pero seguro que si continuo con él, igual acaba llamándose R & flowers forever. Espero que tenga una larga vida. Vorem!!! De momento la temática principal, si no cambio, va a ser limpiar, sí limpiar, y analizar datos del INE. En cierta forma me relaja, es como hacer sudokus.\nAparte de abrir y abandonar blogs … también me gusta mucho trastear con datos y con R. Muchas veces lo hago por gusto, pero otras es por motivos profesionales o docentes. Por ejemplo, llevo dos años dando una asignatura con un nombre largito, pero que en realidad es un curso de introducción a R. Aquí está su página web: https://perezp44.github.io/intro-ds-20-21-web/. Tenéis que ver los trabajos que hicieron los estudiantes!!\nLa web de la asignatura que hice rápido-rápido durante el confinamiento está aquí. Se parece mucho a la web del curso de R pero sólo visualmente.\nQuien sabe, igual acabo en Andorra como los blogueros, bueno, en realidad creo que eran youtubers o instagramers, whatever. Como Benjamín Prado dice, Nunca es tarde!!\n\n\"Nunca es tarde para empezar de cero,para quemar los barcos,para que alguien te diga:-Yo sólo puedo estar contigo o contra mí.Nunca es tarde para cortar la cuerda,para volver a echar las campanas al vuelo,para beber de ese agua que no ibas a beber\".Benjamín Prado pic.twitter.com/YppQ1UAXHk— literland (@literlandweb1) March 17, 2019\n\n\n\n\n\n",
-      "last_modified": "2021-03-01T20:58:33+01:00"
+      "last_modified": "2021-03-01T21:01:38+01:00"
     },
     {
       "path": "index.html",
       "title": "pedro.j.perez website",
       "author": [],
       "contents": "\n\nContents\nBienvenido\n\nBienvenido\nMi nombre es Pedro J. Pérez y soy profesor del departamento de Análisis Económico de la Universitat de València.\n\n\n\nEsta es mi página web personal. La he construido por varias razones, una de ellas aprender sobre programación,  y datos.\nOtra razón, la principal, es que me va a servir para alojar algunos artículos en el blog.\nComo explico un poco en About, los posts los escribo principalmente para mi, pero claro siempre confías/crees que alguien los leerá y que a alguien le gustarán, o le servirán, o encontrarán errores, o … o …, así que, a pesar de que casi no uso las redes sociales:\n@pjpv4444\n@perezp44\nEl mail de toda la vida sí:\npedro.j.perez@uv.es\n\n\n\n",
-      "last_modified": "2021-03-01T20:58:34+01:00"
+      "last_modified": "2021-03-01T21:01:39+01:00"
     }
   ],
   "collections": ["posts/posts.json"]

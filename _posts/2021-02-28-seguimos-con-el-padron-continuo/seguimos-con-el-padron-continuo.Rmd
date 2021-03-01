@@ -101,15 +101,12 @@ El INE ofrece cada una de estas 6 tablas en un fichero para el periodo 2015-2020
 
 De las 6 tablas, procesaré la tercera, la quinta y la  sexta. Con los datos de la quinta tabla veré que municipios/provincias son más cerradas, en el sentido de que un mayor porcentaje de su población vive en el mismo municipio en el que nació. Con los datos de la sexta tabla, seguramente también veré que municipios/regiones tienen una población más joven y/o más centenarios. Todo jugar. Con los datos de cualquiera de las tablas puedo replicar uno de los análisis que ya hicimos en clase: ver en que municipios/provincias hay más mujeres que hombres. Ya lo hicimos en clase el curso pasado y salía algún resultado curioso.
 
-Para las secciones censales hay disponibles también seis tablas, parecidas a las que hay para los municipios, pero se centran más en la nacionalidad, además hay un fichero por año y sólo están disponibles en formato PC-Axis, mientras que las de municipios se pueden descargar en varios formatos.
+Para las secciones censales hay disponibles también seis tablas. Son muy parecidas a las que hay para los municipios, pero se centran más en la nacionalidad, además cada año tiene su propio fichero y sólo están disponibles en formato PC-Axis, mientras que las de municipios se pueden descargar en varios formatos.
 
 
 ```{r, echo = FALSE, layout = "l-body-outset"}
 knitr::include_graphics("./imagenes/tablas_padron_secciones.png")
 ```
-
-El INE ofrece estas tablas en un fichero para el periodo 2015-2020 y un fichero individual para años anteriores. 
-
 
 
 
