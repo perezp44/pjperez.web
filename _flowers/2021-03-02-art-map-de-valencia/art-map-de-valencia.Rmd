@@ -1,7 +1,7 @@
 ---
 title: "Streetmap de Valencia"
 description: |
-   En el primer post del renacido blog R & flowers hago, siguiendo el código de este post (https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps) de  Christian Burkhart, una visualización de las calles de Valencia: un streetmap.
+   En el primer post del renacido blog R & flowers hago, siguiendo el código de este post (https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps) de Christian Burkhart, una visualización de las calles de Valencia: un streetmap.
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
@@ -150,7 +150,7 @@ p <- ggplot() +
   theme(plot.margin = unit(c(0.1, 0.05, 1.7, 0.1), "cm")) +
   theme(plot.background = element_rect(colour = "snow2", size = 10.7)) +
   geom_text(data = data.frame(x = -0.31, y = 39.475, 
-        label = "mar \n  Mediterraneo"),
+        label = "mar \n  Mediterráneo"),
         mapping = aes(x = x, y = y, label = label),
         size = 2.82, angle = 77L, hjust = 0, vjust = 0.5, 
         colour = "#7fc0ff", inherit.aes = FALSE)
