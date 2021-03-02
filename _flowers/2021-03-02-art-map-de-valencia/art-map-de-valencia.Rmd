@@ -1,9 +1,7 @@
 ---
 title: "Streetmap de Valencia"
 description: |
-   Siguiendo el código de [este post](https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps/)
-   de [Christian Burkhart](https://christianburkhart.de/) hago una visualización de las calles de Valencia: un streetmap.
-   
+   En el primer post del renacido blog R & flowers hago, siguiendo el código de este post (https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps) de  Christian Burkhart, una visualización de las calles de Valencia: un streetmap.
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
@@ -12,7 +10,7 @@ date: 2021-03-02
 #base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
 #bibliography: ref.bib
 #slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
-preview: imagenes/preview2_aRt_map_valencia.png
+preview: imagenes/preview_aRt_map_valencia.png
 twitter:
   creator: "@pjpv4444"
 categories: [aRt, street map]
@@ -52,7 +50,8 @@ htmltools::tagList(
 )
 ```
 
-Primer post del renacido blog **R & flowers**
+En el primer post del renacido blog **R & flowers** hago, siguiendo el código de <a href="https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps/">este post</a>
+   de  <a href="https://christianburkhart.de/">Christian Burkhart</a>, una visualización de las calles de Valencia: un streetmap.
 
 ## Intro/motivación
 
@@ -168,6 +167,4 @@ El resultado:
 knitr::include_graphics("./imagenes/aRt_map_valencia.png")
 ```
 
-
-
-Resulta
+Fín
