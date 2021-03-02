@@ -1,7 +1,7 @@
 ---
 title: "Pedro J. Pérez blog"
 description: |
-  El blog tendrá, espero, posts sobre ciencia de datos, principalmente sobre análisis y manejo de datos.
+  El blog tendrá posts sobre ciencia de datos, principalmente sobre análisis y manejo de datos con R. El blog de al lado, R & flowers, acogerá los posts digamos más personales. Todos los hago para aprender y divertirme con R.
 listing: posts
 ---
 

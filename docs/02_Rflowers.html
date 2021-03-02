@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
+  <link rel="alternate" type="application/rss+xml" href="https://perezp44.github.io/pjperez.web/02_Rflowers.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -86,32 +87,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Pedro J. Pérez: R &amp; flowers</title>
+  <title>Pedro J. Pérez: R &amp; flowers blog</title>
 
-  <meta property="description" itemprop="description" content="¿Qué es esto de R &amp; flowers?"/>
+  <meta property="description" itemprop="description" content="El renacido R &amp; flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R."/>
 
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="imagenes/favicon.ico"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Pedro J. Pérez: R &amp; flowers"/>
+  <meta property="og:title" content="Pedro J. Pérez: R &amp; flowers blog"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="¿Qué es esto de R &amp; flowers?"/>
+  <meta property="og:description" content="El renacido R &amp; flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Pedro J. Pérez"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Pedro J. Pérez: R &amp; flowers"/>
-  <meta property="twitter:description" content="¿Qué es esto de R &amp; flowers?"/>
+  <meta property="twitter:title" content="Pedro J. Pérez: R &amp; flowers blog"/>
+  <meta property="twitter:description" content="El renacido R &amp; flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R."/>
   <meta property="twitter:site" content="@pjpv4444"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["R & flowers"]},{"type":"character","attributes":{},"value":["¿Qué es esto de R & flowers?"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["R & flowers blog"]},{"type":"character","attributes":{},"value":["El renacido R & flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.\n"]},{"type":"character","attributes":{},"value":["flowers"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2468,12 +2469,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R & flowers","description":"¿Qué es esto de R & flowers?","authors":[]}
+{"title":"R & flowers blog","description":"El renacido R & flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2504,12 +2505,195 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).load(function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption="R &amp; flowers blog">R &amp; flowers blog</h1>
+<a href="flowers/2021-03-02-art-map-de-valencia/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["aRt","street map"]}</script>
+<div class="metadata">
+<div class="publishedDate">March 2, 2021</div>
+</div>
+<div class="thumbnail">
+<img src="flowers/2021-03-02-art-map-de-valencia/imagenes/preview2_aRt_map_valencia.png"/>
+</div>
+<div class="description">
+<h2>Streetmap de Valencia</h2>
+<div class="dt-tags">
+<div class="dt-tag">aRt</div>
+<div class="dt-tag">street map</div>
+</div>
+<p>Siguiendo el código de [este post](https://ggplot2tutor.com/viz-pages/streetmaps/streetmaps/)
+de [Christian Burkhart](https://christianburkhart.de/) hago una visualización de las calles de Valencia: un streetmap.</p>
+</div>
+</a>
+</div>
+<div class="posts-sidebar">
+<div><div class="sidebar-section custom">
+  <h3>About</h3>
+  El blog tendrá, espero, posts sobre ciencia de datos, principalmente sobre análisis y manejo de datos.
+  Los hago para divertirme y aprender con R. 
+</div></div>
+<div class="sidebar-section categories">
+<h3>Categories</h3>
+<ul>
+<li>
+<a href="#category:Articles">Articles</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:aRt">aRt</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:street_map">street map</a>
+<span class="category-count">(1)</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>R &amp; flowers</h1>
+<h1>R &amp; flowers blog</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>¿Qué es esto de R &amp; flowers?</p></p>
+<p><p>El renacido R &amp; flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.</p></p>
 </div>
 
 
@@ -2521,7 +2705,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 }
 </style>
 </div>
-<p>Nada, que dejo hueco para el futuro blog <code>R&amp;flowers forever</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
