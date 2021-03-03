@@ -30,7 +30,7 @@ collections:
     authors_metadata: false
     feed_iems_max: 20 # default
     share: [twitter, linkedin]   #- para que la gente pueda enviarlo facilmente
-    custom: _custom.html         #- esto mola es como un aside en el blog    
+    custom: _custom2.html         #- esto mola es como un aside en el blog    
 navbar:
   search: true
   source_url: true   #- pone el icono y link a Github

@@ -1,7 +1,7 @@
 ---
 title: "R & flowers blog"
 description: |
-  El renacido R & flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.
+  R & flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.
 listing: flowers
 ---
 
