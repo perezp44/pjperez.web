@@ -1,7 +1,7 @@
 ---
 title: "Municipios con más mujeres que hombres"
 description: |
-  En el post replico uno de los ejercicios que suelo hacer en clase, se trata de obtener y visualizar los municipios españoles que tienen más mujeres que hombres. LLama la atención que, apeasr de hay casi un millón de mujeres más que de hombres, el 75% de los municipios, generalmente los municipios más pequeños, tienen más hombres que mujeres. 
+  En el post replico uno de los ejercicios que suelo hacer en clase, se trata de obtener y visualizar los municipios españoles que tienen más mujeres que hombres. LLama la atención que, a pesar de que hay casi un millón de mujeres más que de hombres, el 75% de los municipios, generalmente los municipios más pequeños, tienen más hombres que mujeres. 
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
