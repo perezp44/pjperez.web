@@ -1,7 +1,7 @@
 ---
 title: "Crecimiento de la poblacion por provincias: 2000-2020"
 description: |
-  Se presentan 3 visualizaciones para el crecimiento de la población provincial en España para el periodo 2000-2020. La primera, una coropleta, complementa y reafirma el resultado del segundo post. La segunda, un spaghetti plot, que permite ver, hasta cierto punto, la evolución tenporal del crecimiento de la población provincial a lo largo del periodo. Por último se presentan 2 heatmaps que complementan al anterior gráfico.
+  Se presentan 3 visualizaciones para el crecimiento de la población provincial en España para el periodo 2000-2020. La primera, una coropleta, complementa y reafirma el resultado del segundo post. La segunda, un spaghetti plot, que permite ver, hasta cierto punto, la evolución temporal del crecimiento de la población provincial a lo largo del periodo. Por último se presentan 2 heatmaps que complementan al anterior gráfico.
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
