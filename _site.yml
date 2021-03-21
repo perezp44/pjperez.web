@@ -6,8 +6,8 @@ theme: assets/theme_frie_pjp.css  #-
 output_dir: "docs"
 favicon: imagenes/favicon.ico
 base_url: https://perezp44.github.io/pjperez.web           #- es bueno ponerlo
-repository_url: https://github.com/perezp44/pjperez.web   #- es bueno ponerlo
-google_analytics:  "UA-71846326-7"           #- "G-TK8C0J083M" igual es 262746071
+repository_url: https://github.com/perezp44/pjperez.web    #- es bueno ponerlo
+google_analytics:  "UA-71846326-7"           
 creative_commons: CC BY
 twitter:
   site: "@pjpv4444"

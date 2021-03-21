@@ -1,7 +1,7 @@
 ---
 title: "Municipios con más mujeres que hombres"
 description: |
-  En el post replico uno de los ejercicios que suelo hacer en clase, se trata de obtener y visualizar los municipios españoles que tienen más mujeres que hombres. LLama la atención que, a pesar de que hay casi un millón de mujeres más que de hombres, el 75% de los municipios, generalmente los municipios más pequeños, tienen más hombres que mujeres. 
+  En el post replico uno de los ejercicios que solemos hacer en clase, se trata de obtener y visualizar los municipios españoles con más mujeres que hombres. LLama la atención que, a pesar de que hay casi un millón de mujeres más que de hombres, el 75% de los municipios, generalmente los municipios más pequeños, tienen más hombres que mujeres. 
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
@@ -126,7 +126,7 @@ df <- df %>% group_by(ine_prov, year, sexo)  %>%
 # readr::write_csv(df, here::here("datos", "INE", "ine_padron_continuo", "tablas_muni", "tabla_5_relacion_muni.csv"))
 ```
 
-Una vez procesados la tabla sólo tengo que decidir que graficar. En realidad lo tengo decidido hace bastante: crearé una variable discreta que señale a los municipios con más, menos o igual número de mujeres que de hombres
+Una vez procesados los datos, sólo tengo que decidir qué graficar. En realidad lo tengo decidido hace bastante: crearé una variable discreta que señale a los municipios con más, menos o igual número de mujeres que de hombres: se trat sólo de replicar un jercicio de clase, eso sí, dejando el gráfico más bonito/acabado.
 
 ```{r, eval = TRUE, echo = TRUE, code_folding = TRUE}
 library(tidyverse)
@@ -173,7 +173,7 @@ Una vez hecho esto solo queda repetir lo que hice en segundo post para mostrar l
 knitr::include_graphics("./imagenes/2021_03_04_mapa_mas_mujeres.png")
 ```
 
-Queda comentar minimamente el mapa. ¿Qué decir de él? No mucho, no soy sociólogo ni demógrafo^[Es posible que el blog pase a llamarse"No soy sociólogo ni demógrafo pero ..."], además ya digo que el blog es para aprender R; a pesar de todas estas excusas, tengo mis opiniones, pero son eso opiniones, además no demasiado reflexionadas. ¿Qué me sugiere el gráfico? Pues que no es casualidad que, a pesar de que hay casi un millón de mujeres más que de hombres, la mayoría de poblaciones pequeñas tengan más hombres que mujeres. Puede haber varias razones para que las mujeres "abandonen" las poblaciones pequeñas y tiendan a concentrase en las ciudades: igual tienen menos posibilidades laborales^[En los pueblos muy pequeños, la mayoría de trabajos están relacionados con la agricultura y ganadería, trabajos tradicionalmente vinculados a varones.] en las poblaciones pequeñas, o igual los condicionantes familiares y/o sociales hacen, o al menos hacían, que las mujeres las abandonasen.
+Queda comentar minimamente el mapa. ¿Qué decir de él? No mucho, no soy sociólogo ni demógrafo ... Es posible que el blog pase a llamarse "No soy sociólogo ni demógrafo pero ...". Además ya digo que el blog es para aprender R, no para hacer análisis serios, al menos de momento. A pesar de todas estas excusas, tengo mis opiniones, pero son eso opiniones, además no demasiado reflexionadas. ¿Qué me sugiere el gráfico? Pues que no es casualidad que, a pesar de que hay casi un millón de mujeres más que de hombres, la mayoría de poblaciones pequeñas tengan más hombres que mujeres. Puede haber varias razones para que las mujeres "abandonen" las poblaciones pequeñas y tiendan a concentrase en las ciudades: igual tienen menos posibilidades laborales^[En los pueblos muy pequeños, la mayoría de trabajos están relacionados con la agricultura y ganadería, trabajos tradicionalmente vinculados a varones.] en las poblaciones pequeñas, o igual los condicionantes familiares y/o sociales hacen, o al menos hacían, que las mujeres las abandonasen.
 
 
 Al final no he hecho la coropleta con escala bivariante. En el siguiente post.

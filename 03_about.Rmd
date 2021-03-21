@@ -8,7 +8,7 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Esta es mi página web personal. Me va a servir principalmente para alojar algunos artículos en el [blog](01_blog.html).
+Esta página web me va a servir principalmente para alojar algunos artículos en el/los blog's:  [Pedro J. Pérez blog](01_blog.html) y [R & flowers blog](02_Rflowers.html). 
 
 La verdad es que **me gusta escribir posts**, tienes mucha más libertad que al escribir un informe o un artículo académico. Los posts **no tienen porque estar perfectos**, cuando te apetece los puedes dejar, aunque no estén perfectos ni acabados del todo.
 
@@ -27,7 +27,7 @@ De hecho, ya llevo una larga **carrera como bloguero** ("guiño-guiño"). Aquí 
 - En el tercero, ya en 2020, me pasé a Distill. Lo hice durante el confinamiento porque me pareció una buena idea hacer una página web para una asignatura, así que aproveche el tirón y creé [R & flowers 0.1.3](https://perezp44.github.io/my_blog_R-flowers-0.1.3/). Los registros se derrumbaron, sólo un post `r emo::ji("-1")`. Que queréis, estábamos en pandemia!! Además tenía que hacer una página web para dar clase online. Se quedaron varios posts a medio escribir, eran sobre temas sanitarios, camas en hospitales ... 
 
 
-- El cuarto, este blog, ya no se llama R & flowers porque es una Distill webpage, pero seguro que si continuo con él, igual acaba llamándose **R & flowers forever**.  Espero que tenga una larga vida. Vorem!!! De momento la temática principal, si no cambio, va a ser limpiar, sí limpiar, y analizar datos del INE. En cierta forma me relaja, es como hacer sudokus.
+- El cuarto, de 2021, es esta página web que estás viendo. Es una Distill webpage con 2 blogs. ¿De verdad te hacen falta 2 blogs? No, pero no sé que ha pasado. Creo que el segundo se ha creado solo, alguna espora!! Espero que tengan una larga vida. Vorem!!! De momento la temática principal, si no cambio, va a ser limpiar, sí limpiar, y analizar datos del INE. En cierta forma me relaja, es como hacer sudokus.
 
 Aparte de abrir y abandonar blogs ... también me gusta mucho trastear con datos y con R. Muchas veces lo hago por gusto, pero otras es por motivos profesionales o docentes. Por ejemplo, llevo dos años dando una asignatura con un nombre largito, pero que en realidad es un **curso de introducción a R**. Aquí está su página web: <https://perezp44.github.io/intro-ds-20-21-web/>. Tenéis que ver los trabajos que hicieron los estudiantes!!
 
