@@ -1,5 +1,5 @@
 ---
-title: "pedro.j.perez website"
+title: "pedro.j.perez blog's"
 image: "foto_pedro-perez.jpg"
 links:
   - label: Twitter
@@ -21,10 +21,7 @@ knitr::include_graphics("imagenes/foto_pjp_redondeada.png")
 ```
 </aside>
 
-Esta es mi página web personal. La he construido por varias razones, una de ellas aprender sobre programación, `r fontawesome::fa(name = "r-project", fill = "steelblue")` y datos. 
-
-Otra razón, la principal, es que me va a servir para alojar algunos artículos en el [blog](01_blog.html). 
-
+Utilizo R en mi docencia e investigación pero, además, me gusta jugar y trastear con R para aprender sobre programación, `r fontawesome::fa(name = "r-project", fill = "steelblue")` y datos. Esta página web me va a servir para alojar algunos de estos análisis en el blog. Bueno, en realidad hay 2 blogs: [Pedro J. Pérez blog](01_blog.html) y [R & flowers blog](02_Rflowers.html). 
 
 
 Como explico un poco en [About](03_about.html), los posts los escribo principalmente para mi, pero claro siempre confías/crees que alguien los leerá y que a alguien le gustarán, o le servirán, o encontrarán errores, o ... o ..., así que, a pesar de que casi no uso las redes sociales:

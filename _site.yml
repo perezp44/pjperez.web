@@ -1,7 +1,7 @@
 name: "pjperez.web"
 title: "Pedro J. Pérez"
 description: |
-  Pedro J. Pérez website
+  Pedro J. Pérez blog's
 theme: assets/theme_frie_pjp.css  #- 
 output_dir: "docs"
 favicon: imagenes/favicon.ico
