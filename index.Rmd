@@ -11,7 +11,7 @@ links:
 site: distill::distill_website
 ---
 
-### Bienvenido
+### Bienvenido / Welcome
 
 Mi nombre es Pedro J. Pérez y soy profesor del departamento de Análisis Económico de la Universitat de València. 
 
