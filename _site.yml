@@ -3,6 +3,7 @@ title: "Pedro J. Pérez"
 description: |
   Pedro J. Pérez blog's
 theme: assets/theme_frie_pjp.css  #- 
+exclude: ["*.Rmd", "*.csv", "*.xlsx"]  #- estos ficheros no se publican en la web
 output_dir: "docs"
 favicon: imagenes/favicon.ico
 base_url: https://perezp44.github.io/pjperez.web           #- es bueno ponerlo

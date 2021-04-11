@@ -168,3 +168,6 @@ knitr::include_graphics("./imagenes/aRt_map_valencia.png")
 ```
 
 Fin
+
+PD: Hoy, jueves 25 de marzo de 2021, he visto [este post](http://estebanmoro.org/post/2020-10-19-personal-art-map-with-r/) de Esteban Moro. Me lo apunto por si algún día retomo el mapstreet. [Otro más](https://github.com/deanmarchiori/culburra), esta vez de
+Dean Marchiori y su mapa de Culburra.
