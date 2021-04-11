@@ -13,6 +13,9 @@ library(viridis)
 
 #- hace falta tener la geometría, en este caso de Pancrudo
 municipios <- pjpv.datos.01::LAU2_muni_2020_canarias
+#- remotes::install_github("rOpenSpain/LAU2boundaries4spain")
+municipios <- LAU2boundaries4spain::municipios_2021 
+
 pancrudo_bound <- municipios %>% filter(ine_muni.n == "Pancrudo")
 aa <- sf::st_touches(pancrudo_bound, municipios)[[1]]
 pancrudo_vecinos <- municipios %>% slice(aa)
@@ -272,57 +275,4 @@ plotito <- hexwall("./_pruebas/samplehex", sticker_width = 500,
   sort_mode = "colour")
 plot(plotito)
 
-#-------------------------------------------------------------------
-  
-
-  #you should be using the following aesthetics for any plot you make:
-  ggplot(aes(x=long_c, y = lat_c, group = group))+
-  geom_polygon(aes(fill=brks), color = "white", size = 0.1)+
-  #Line to separate the Canary Islands
-  geom_path(data = canaries_line2, 
-            aes(x=long, y = lat, group = NULL), 
-            color = "grey40", alpha = 0.7)+
-  #Adding the color palette 
-  #AND setting how I want the scale to look like
-  scale_fill_manual(
-    values = rev(pal), #I use rev so that red is for lowest values 
-    breaks = rev(brks_scale),
-    name = "Renta media (€)",
-    drop = FALSE,
-    labels = labels_scale,
-    guide = guide_legend(direction = "horizontal",
-                         keyheight = unit(2, units = "mm"),
-                         keywidth = unit(50 / length(labels), units = "mm"),
-                         title.position = 'top',
-                         title.hjust = 0.5,
-                         label.hjust = 1,
-                         nrow = 1,
-                         byrow = T,
-                         reverse = T,
-                         label.position = "bottom"))+
-  labs(title="La brecha territorial en España",
-       subtitle="Renta relativa por municipio con respecto a la renta media nacional, 2016",
-       caption = "Ariane Aumaitre - Datos: INE")+
-  theme_ari_maps()+
-  ggsave("local.png", height = 5, width = 6)
-
-
-#- tb Aumeitre: https://github.com/aaumaitre/tuto-R-iales/blob/main/mapa_es.R
-#mapa final!
-
-local_plot2%>%
-  ggplot(aes(fill = perc))+
-  geom_sf(color = "white", size = 0.1)+
-  geom_segment(aes(x = -8, y = 35, xend = -8, yend = 38), color = "grey60")+
-  geom_segment(aes(x = -15, y = 38, xend = -8, yend = 38), color = "grey60")+
-  scale_fill_distiller(palette = "RdPu", trans = "reverse", 
-                       labels = function(x) paste0(x, "%"))+
-  guides(fill = guide_legend(direction = "horizontal",
-                             keyheight = unit(2, units = "mm"),
-                             label.position = "bottom"))+
-  labs(title = "Distribución territorial de la pobreza",
-       subtitle = "% de personas por debajo del 60% de la renta mediana por municipio",
-       fill = NULL)+
-  theme_maps()+
-  ggsave("mapas/final.png", height = 5, width = 9, type = "cairo")
 

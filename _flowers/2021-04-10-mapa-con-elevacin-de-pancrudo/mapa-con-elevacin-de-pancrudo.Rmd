@@ -10,7 +10,7 @@ date: 2021-04-10
 #base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
 #bibliography: ref.bib
 #slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
-preview: imagenes/relieve_elevacion_Pancrudo_fuentes.png
+preview: imagenes/relieve_elevacion_Pancrudo_2.png
 twitter:
   creator: "@pjpv4444"
 categories: [maps]
@@ -66,16 +66,19 @@ Por ejemplo, para descargar datos de elevación de mi pueblo, Pancrudo, he de:
 
 ```{r, eval = FALSE, code_folding = "El código:", echo = TRUE}
 #- hace falta tener la geometría, en este caso de Pancrudo
-pancrudo <- pjpv.datos.01::LAU2_muni_2020_canarias %>% 
-  filter(ine_muni.n == "Pancrudo")
+#- remotes::install_github("rOpenSpain/LAU2boundaries4spain")
+municipios <- LAU2boundaries4spain::municipios_2021 
 
-#- bajamos datos de elevación
-elevation_data <- elevatr::get_elev_raster(locations = swiss_bound, z = 9, clip = "locations")
+pancrudo_bound <- municipios %>% filter(ine_muni.n == "Pancrudo")
+aa <- sf::st_touches(pancrudo_bound, municipios)[[1]]
+pancrudo_vecinos <- municipios %>% slice(aa)
 
+
+#- bajamos datos de elevación (Pancrudo) -----------------
+elevation_data <- elevatr::get_elev_raster(locations = pancrudo_bound, z = 9, clip = "locations")
 #- convertimos en data.frame y arreglamos
 elevation_data <- as.data.frame(elevation_data, xy = TRUE)
 colnames(elevation_data)[3] = "elevation"
-
 #- quitamos NA's
 elevation_data <- elevation_data[complete.cases(elevation_data),] 
 ```
