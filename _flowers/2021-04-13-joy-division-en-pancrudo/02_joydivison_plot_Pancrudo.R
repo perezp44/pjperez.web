@@ -84,4 +84,5 @@ ggsave(p2, filename = here::here("imagenes", "joy_division_Pancrudo_02_naranja.p
 
 ggsave(p2, filename = here::here("imagenes", "joy_division_Pancrudo_02_naranja_x.png"),
        device = "png", width = 6, height = 8, units = "in")
+knitr::plot_crop(here::here("imagenes", "joy_division_Pancrudo_02_naranja_x.png"))
 
