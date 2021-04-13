@@ -145,7 +145,7 @@ Al final me quedo con este plot:
 
 ```{r, echo = FALSE, out.width="120%"}
 #- layout = "l-page"
-knitr::include_graphics("./imagenes/joy_division_Pancrudo_02_naranja.png")
+knitr::include_graphics("./imagenes/joy_division_Pancrudo_02_naranja_x.png")
 ```
 
 
@@ -232,7 +232,7 @@ p2 <- p + coord_sf(xlim = c(-1.095, -0.933), ylim = c(40.73, 40.91), expand = FA
 
 p2
 
-ggsave(p2, filename = here::here("imagenes", "joy_division_Pancrudo_02_naranja.png"),
+ggsave(p2, filename = here::here("imagenes", "joy_division_Pancrudo_02_naranja_x.png"),
        device = "png", width = 15, height = 20, units = "cm")
 ```
 
