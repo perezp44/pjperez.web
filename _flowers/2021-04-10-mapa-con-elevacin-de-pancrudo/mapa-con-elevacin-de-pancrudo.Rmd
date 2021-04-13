@@ -1,7 +1,7 @@
 ---
 title: "Mapa con las elevaciones de Pancrudo"
 description: |
-   El objetivo es hacer uno o varios mapas con datos de elevación del terreno. Seguramente haré uno para Pancrudo y alguno más.
+   El objetivo es hacer uno o varios mapas con datos de elevación del terreno. Seguramente haré uno para Pancrudo y alguno más. Al final he situado en el mapa las fuentes y los montes de Pancrudo. Casi nada!! Ahora si que me los aprendo!
 author:
   - name: Pedro J. Pérez
     affiliation: Universitat de València
@@ -52,7 +52,7 @@ htmltools::tagList(
 
 # Intro
 
-Voy a hacer unos mapas con datos de elevación del terreno. ¿Que por qué? Pues resulta que no se muy bien cómo, llegué a [esta web](https://rspatialdata.github.io/elevation.html) donde explican cómo descargar datos de elevación del terreno usando el paquete de R [`elevatr`](https://github.com/jhollist/elevatr/). He probado un poco con el paquete y me ha salido a la primera, todo muy fácil, así que, aquí estoy redactando el post. Además, recuerdo que hace tiempo vi un post con datos de elevación de la provincia de Granada en el que se hacía un gráfico parecido a la portada de [Unknown Pleasures, el primer disco de Joy Division](https://codigoespagueti.com/noticias/ciencia/historia-secreta-unknown-pleasures/) e intente replicarlo pero no conseguí bajarme datos de elevación, tampoco lo intente massa, pero ahora ya tengo los datos de elevación, así que a ver si me sale o encuentro el post, que no quiero calentarme mucho el cap. Si consigo hacer un plot replicando la portada de Joy Division, añadiré al post la categoría de `aRt`. Acabo de encontrar el post, es de Daniel Redondo: [Mapas estilo Joy Division con QGIS y R](https://danielredondo.com/posts/20200125_joy_division/). No confío mucho en que me salga, no quiero perder massa temps, pero como me salga hago camisetas per tutti.
+Voy a hacer unos mapas con datos de elevación del terreno. ¿Que por qué? Pues resulta que no se muy bien cómo, llegué a [esta web](https://rspatialdata.github.io/elevation.html) donde explican cómo descargar datos de elevación del terreno usando el paquete de R [`elevatr`](https://github.com/jhollist/elevatr/). He probado un poco con el paquete y me ha salido a la primera, todo muy fácil, así que, aquí estoy redactando el post. Además, recuerdo que hace tiempo vi un post con datos de elevación de la provincia de Granada en el que se hacía un gráfico parecido a la portada de [Unknown Pleasures, el primer disco de Joy Division](https://codigoespagueti.com/noticias/ciencia/historia-secreta-unknown-pleasures/) e intenté replicarlo pero no conseguí bajarme datos de elevación, tampoco lo intente massa, pero ahora ya tengo los datos de elevación, así que a ver si me sale o encuentro el post, que no quiero calentarme mucho el cap. Si consigo hacer un plot replicando la portada de Joy Division, añadiré al post la categoría de `aRt`. Acabo de encontrar el post, es de Daniel Redondo: [Mapas estilo Joy Division con QGIS y R](https://danielredondo.com/posts/20200125_joy_division/). No confío mucho en que me salga, no quiero perder massa temps, pero como me salga hago camisetas per tutti.
 
 
 # Datos de elevación
@@ -67,13 +67,10 @@ Por ejemplo, para descargar datos de elevación de mi pueblo, Pancrudo, he de:
 ```{r, eval = FALSE, code_folding = "El código:", echo = TRUE}
 #- hace falta tener la geometría, en este caso de Pancrudo
 #- remotes::install_github("rOpenSpain/LAU2boundaries4spain")
-municipios <- LAU2boundaries4spain::municipios_2021 
-
+municipios <- pjpv.datos.01::LAU2_muni_2020_canarias
 pancrudo_bound <- municipios %>% filter(ine_muni.n == "Pancrudo")
 aa <- sf::st_touches(pancrudo_bound, municipios)[[1]]
 pancrudo_vecinos <- municipios %>% slice(aa)
-
-
 #- bajamos datos de elevación (Pancrudo) -----------------
 elevation_data <- elevatr::get_elev_raster(locations = pancrudo_bound, z = 9, clip = "locations")
 #- convertimos en data.frame y arreglamos
@@ -108,26 +105,20 @@ p <- ggplot() +
   labs(caption = "Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444") +
   theme(plot.caption = element_text(size = 7))
 p
-
 ggsave(p, filename = here::here("imagenes", "relieve_elevacion_Pancrudo.png"),
        device = "png", width = 10, height = 13, units = "cm")
-
 #- OK, conseguido. A ver si puedo mejorarlo algo!!!
 #- primero simplement cambiar el color y ...
 #- whit tinter pkg: https://github.com/sebdalgarno/tinter
 library(tinter)
 hex <- "#335CAC"
 tinter(hex, steps = 10, crop = 7)
-
 p_blue <- p +  scale_fill_gradientn(colours = tinter(hex, steps = 10)) +
   theme(legend.position ="bottom")
-
 ggsave(p_blue, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_blue.png"),
        device = "png", width = 10, height = 13, units = "cm")
-
 library(patchwork)
 p_mas_blue <- p + p_blue
-
 ggsave(p_mas_blue, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_2.png"),
        device = "png", width = 20, height = 15, units = "cm")
 ```
@@ -191,9 +182,7 @@ p_vecinos <- ggplot() +
                    ggplot2::element_rect(fill = NA , color = NA)) +
   labs(caption = "Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444") +
   theme(plot.caption = element_text(size = 7))
-
 p_vecinos
-
 ggsave(p_vecinos, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_vecinos.png"),
        device = "png", width = 18, height = 14, units = "cm")
 ```
@@ -221,11 +210,9 @@ pueblos <- tibble::tibble(
   provincia = "Teruel",
   pais = "Spain")
 pueblos <- pueblos %>% mutate(text_to_geocode = paste(pueblo, provincia, pais, sep = ", "))
-
 # now geocode -----
 library(tidygeocoder)
 pueblos <- pueblos %>% tidygeocoder::geocode(text_to_geocode, method = "osm") %>% dplyr::select(- text_to_geocode)
-
 # convert coordinates to an sf object
 #pueblos <- pueblos %>% sf::st_as_sf(coords = c("long", "lat"), crs = 4326)
 ```
@@ -249,9 +236,7 @@ tipos_acc <- accidentes %>% distinct(codigo_ngbe, codigo_ngbe_text)
 accidentes_montes <- accidentes %>% filter(codigo_ngbe %in% c("4.1.3", "4.1.2"))
 accidentes_fuentes <- accidentes %>% filter(codigo_ngbe %in% c("5.5"))
 accidentes_vertices <- accidentes %>% filter(codigo_ngbe %in% c("2.3.1"))
-
 janitor::tabyl(accidentes, codigo_ngbe_text )
-
 pp_montes <- pp + 
   geom_point(data = accidentes_montes, aes(x = long_etrs89_regcan95, y = lat_etrs89_regcan95), color = "black", shape = 17) +
   geom_point(data = accidentes_vertices, aes(x = long_etrs89_regcan95, y = lat_etrs89_regcan95), color = "black", shape = 8) +
@@ -272,20 +257,16 @@ pp_fuentes <- pp +
   labs(title = "Fuentes de Pancrudo", caption = "") +
   theme(plot.title = element_text(color = "midnightblue"))+
   theme(plot.title = element_text(hjust = 0.5))     # Center ggplot title
-
 #- OK voy a juntar pp_fuentes y pp_montes en un gráfico con patch y luego le voy a añadir label y caption con cowplot
 library(patchwork)
 ppp <- pp_montes + pp_fuentes
-
 ppp
-
 library(cowplot)
 title <- ggdraw() +
   draw_label("Relieve del municipio de Pancrudo",
              fontfamily = "DejaVu Serif Condensed",
              #colour = "lightpink4",
              hjust = 0.5, size = 24)
-
 caption <- ggdraw() +
   draw_label("\n Datos de montes y fuentes del IGN | Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444",
              #fontfamily = "DejaVu Serif Condensed",
@@ -298,21 +279,17 @@ pppp <- plot_grid(title,
                caption,
                ncol = 1,
                rel_heights = c(0.15, 0.754, 0.06))
-
 pppp
-
 #- no consigo quitar el marco blanco ???
 zz <- pppp + pjpv2020.01::theme_pjp_maps()
   
 zz  + theme(panel.background = ggplot2::element_rect(fill = "#f5f5f2", color = "#f5f5f2"),
                    plot.background = ggplot2::element_rect(fill = "#f5f5f2", color = NA),
                    panel.border = ggplot2::element_rect(fill = "#f5f5f2", color = NA))
-
 zz
 ggsave(zz, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_fuentes.png"),
        device = "png", width = 24, height = 17, units = "cm")
 knitr::plot_crop(here::here("imagenes", "relieve_elevacion_Pancrudo_fuentes.png"))
-
 ```
 
 
@@ -328,24 +305,19 @@ Para acabar, el código todo junto:
 ```{r, eval = FALSE, code_folding = "El código:", echo = TRUE}
 #- R script para hacer el flower post de 10 de Abril de 2021
 #- voy a usar datos de elevación de aqui: https://rspatialdata.github.io/elevation.html
-
 library(tidyverse)
 library(raster)
 library(elevatr)
 library(sf)
 library(viridis)
-
 #library(rgeoboundaries) #- remotes::install_gitlab("dickoa/rgeoboundaries")
 #swiss_bound <- geoboundaries("Switzerland")
 #- aa <- rgeoboundaries::gb_adm0("Spain")
-
 #- hace falta tener la geometría, en este caso de Pancrudo
 municipios <- pjpv.datos.01::LAU2_muni_2020_canarias
 pancrudo_bound <- municipios %>% filter(ine_muni.n == "Pancrudo")
 aa <- sf::st_touches(pancrudo_bound, municipios)[[1]]
 pancrudo_vecinos <- municipios %>% slice(aa)
-
-
 #- bajamos datos de elevación (Pancrudo) -----------------
 elevation_data <- elevatr::get_elev_raster(locations = pancrudo_bound, z = 9, clip = "locations")
 #- convertimos en data.frame y arreglamos
@@ -353,8 +325,6 @@ elevation_data <- as.data.frame(elevation_data, xy = TRUE)
 colnames(elevation_data)[3] = "elevation"
 #- quitamos NA's
 elevation_data <- elevation_data[complete.cases(elevation_data),] 
-
-
 #- el plot (sin vecinos) ------------------
 p <- ggplot() +
   #geom_sf(data = pancrudo_vecinos, color = "grey", fill = NA) +
@@ -374,31 +344,22 @@ p <- ggplot() +
   labs(caption = "Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444") +
   theme(plot.caption = element_text(size = 7))
 p
-
 ggsave(p, filename = here::here("imagenes", "relieve_elevacion_Pancrudo.png"),
        device = "png", width = 10, height = 13, units = "cm")
-
 #- OK, conseguido. A ver si puedo mejorarlo algo!!!
 #- primero simplement cambiar el color y ...
 #- whit tinter pkg: https://github.com/sebdalgarno/tinter
 library(tinter)
 hex <- "#335CAC"
 tinter(hex, steps = 10, crop = 7)
-
 p_blue <- p +  scale_fill_gradientn(colours = tinter(hex, steps = 10)) +
   theme(legend.position ="bottom")
-
 ggsave(p_blue, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_blue.png"),
        device = "png", width = 10, height = 13, units = "cm")
-
-
 library(patchwork)
-
 p_mas_blue <- p + p_blue
-
 ggsave(p_mas_blue, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_2.png"),
        device = "png", width = 20, height = 15, units = "cm")
-
 #- Pueblos vecinos --------------------------
 #- bajamos datos de elevación (vecinos Pancrudo) 
 elevation_data_vecinos <- elevatr::get_elev_raster(locations = pancrudo_vecinos, z = 9, clip = "locations")
@@ -407,15 +368,11 @@ elevation_data_vecinos <- as.data.frame(elevation_data_vecinos, xy = TRUE)
 colnames(elevation_data_vecinos)[3] = "elevation"
 #- quitamos NA's
 elevation_data_vecinos <- elevation_data_vecinos[complete.cases(elevation_data_vecinos),] 
-
 #- altitud de los vecinos (segun IGN)
 pueblos_ign <- rio::import("/home/pjpv/Escritorio/my_datos_2021/datos/codigos/IGN_municipios.xlsx") %>% dplyr::select(ine_muni, ine_muni.n, ALTITUD, ine_prov.n)
 names(pueblos_ign)
 pancrudo_vecinos <- left_join(pancrudo_vecinos, pueblos_ign) %>% dplyr::select(ine_muni, ine_muni.n, ALTITUD, ine_prov.n, X, Y)
 pancrudo_vecinos <- pancrudo_vecinos %>% mutate(textito = glue::glue("{ine_muni.n}\n({ALTITUD})"))
-
-
-
 #- el plot (con vecinos) --------------
 p_vecinos <- ggplot() +
   #- datos de elevación del terreno
@@ -449,34 +406,24 @@ p_vecinos <- ggplot() +
                    ggplot2::element_rect(fill = NA , color = NA)) +
   labs(caption = "Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444") +
   theme(plot.caption = element_text(size = 7))
-
 p_vecinos
-
-
 ggsave(p_vecinos, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_vecinos.png"),
        device = "png", width = 18, height = 14, units = "cm")
-
 #- Poner los 4 pueblos de Pancrudo -----------------
 pueblos1 <- rio::import("/home/pjpv/Escritorio/my_datos_2021/datos/codigos/IGN_municipios.xlsx") %>% filter(stringr::str_detect(COD_INE_CAPITAL, "^44177"))
-
 p + geom_point(data = pueblos1, aes(x = LONGITUD_ETRS89, y = LATITUD_ETRS89))
 names(pueblos1)
-
 #- voy a geolocalizar ----------
 pueblos <- tibble::tibble(
   pueblo = c("Cervera del Rincón" ,   "Cuevas de Portalrubio", "Pancrudo","Portalrubio"  ),
   provincia = "Teruel",
   pais = "Spain")
 pueblos <- pueblos %>% mutate(text_to_geocode = paste(pueblo, provincia, pais, sep = ", "))
-
 # now geocode -----
 library(tidygeocoder)
 pueblos <- pueblos %>% tidygeocoder::geocode(text_to_geocode, method = "osm") %>% dplyr::select(- text_to_geocode)
-
 # convert coordinates to an sf object
 #pueblos <- pueblos %>% sf::st_as_sf(coords = c("long", "lat"), crs = 4326)
-
-
 #- situo los 4 pueblos como puntos
 pp <- p + geom_point(data = pueblos, aes(x = long, y = lat), shape = 15, color = "darkgreen", size = 2.5) + 
   #geom_point(data = pueblos1, aes(x = LONGITUD_ETRS89, y = LATITUD_ETRS89), color = "purple") + 
@@ -491,9 +438,7 @@ tipos_acc <- accidentes %>% distinct(codigo_ngbe, codigo_ngbe_text)
 accidentes_montes <- accidentes %>% filter(codigo_ngbe %in% c("4.1.3", "4.1.2"))
 accidentes_fuentes <- accidentes %>% filter(codigo_ngbe %in% c("5.5"))
 accidentes_vertices <- accidentes %>% filter(codigo_ngbe %in% c("2.3.1"))
-
 janitor::tabyl(accidentes, codigo_ngbe_text )
-
 pp_montes <- pp + 
   geom_point(data = accidentes_montes, aes(x = long_etrs89_regcan95, y = lat_etrs89_regcan95), color = "black", shape = 17) +
   geom_point(data = accidentes_vertices, aes(x = long_etrs89_regcan95, y = lat_etrs89_regcan95), color = "black", shape = 8) +
@@ -515,27 +460,21 @@ pp_fuentes <- pp +
   labs(title = "Fuentes de Pancrudo", caption = "") +
   theme(plot.title = element_text(color = "midnightblue"))+
   theme(plot.title = element_text(hjust = 0.5))     # Center ggplot title
-
-
 #- OK voy a juntar pp_fuentes y pp_montes en un gráfico con patch y luego le voy a añadir label y caption con cowplot
 library(patchwork)
 ppp <- pp_montes + pp_fuentes 
-
 library(cowplot)
 title <- ggdraw() +
   draw_label("Relieve del municipio de Pancrudo",
              fontfamily = "DejaVu Serif Condensed",
              #colour = "lightpink4",
              hjust = 0.5, size = 22)
-
 caption <- ggdraw() +
   draw_label("\n Datos de montes y fuentes del IGN | Datos de elevación del paquete elevatr\n Geometrías del paquete LAU2boundaries4spain | Visualización: @pjpv4444",
              #fontfamily = "DejaVu Serif Condensed",
              #colour = "lightpink4",
              hjust = 0.5,
              size = 8) 
-
-
 #-juntos el plot, el label y la caption
 pppp <- plot_grid(title,
                #plot_grid(ppp, nrow = 1, rel_widths = c(0.5, 0.5)),
@@ -543,20 +482,13 @@ pppp <- plot_grid(title,
                caption,
                ncol = 1,
                rel_heights = c(0.15, 0.754, 0.06))
-
-
 pppp
-
-
 #- no consigo quitar el trozo blanco
 zz <- pppp + pjpv2020.01::theme_pjp_maps()
-
 zz  + theme(panel.background = ggplot2::element_rect(fill = "#f5f5f2", color = "#f5f5f2"),
             plot.background = ggplot2::element_rect(fill = "#f5f5f2", color = NA),
             panel.border = ggplot2::element_rect(fill = "#f5f5f2", color = NA))
-
 zz
-
 ggsave(zz, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_fuentes.png"),
        device = "png", width = 24, height = 17, units = "cm")
 #knitr::plot_crop(here::here("imagenes", "relieve_elevacion_Pancrudo_fuentes.png"))
