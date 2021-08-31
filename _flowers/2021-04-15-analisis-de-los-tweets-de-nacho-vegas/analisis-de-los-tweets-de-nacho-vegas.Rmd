@@ -1,0 +1,62 @@
+---
+title: "Analisis de los tweets de Nacho Vegas"
+description: |
+   El título es un poco exagerado. Ojala!! Ojala, porque eso significaría que Ian Curtis estaría vivo y que el Gaire se ha hecho muy grande y famoso. Lo que hago en el post, bueno haré, es un gráfico parecido al de la mítica portada de Unknown Pleasures  de los Joy Division usando los datos de elevación de mi pueblo, Pancrudo. Todo ello gracias a Daniel Redondo que hizo lo mismo pero para la provincia de Granada.
+author:
+  - name: Pedro J. Pérez
+    affiliation: Universitat de València
+    orcid_id: 0000-0001-9375-6330
+date: 2021-04-15
+#base_url: https://perezp44.github.io/pjperez.web  #- es bueno ponerlo
+#bibliography: ref.bib
+#slug: travel2019   #- creo q es para poner el nombre que tu quieras a la carpeta del post
+preview: imagenes/preview_joy_division_Pancrudo_02_naranja.png
+twitter:
+  creator: "@pjpv4444"
+categories: [aRt]
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+    toc_float: true   
+    #code_folding: true
+    css: assets/theme_frie_pjp_posts.css 
+draft: true
+---
+
+```{r setup, include=FALSE}
+library(formatR)
+knitr::opts_chunk$set(
+  #code_folding = FALSE,
+  echo = FALSE, warning = FALSE, message = FALSE,
+  comment = "#>", results = "hold",
+  collapse = TRUE,  fig.show = "hold", fig.asp = 0.618, fig.width = 6, out.width = "70%", fig.align = "center",
+  R.options = list(width = 70) #- Keeping R code and output at 70 characters wide (or less) is recommended for readability on a variety of devices and screen sizes.
+)
+```
+
+```{r options_setup, include = FALSE}
+options(scipen = 999) #- para quitar la notación científica
+```
+
+```{r xaringanExtra-clipboard, include = FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+
+# Intro
+
+Pues voy a replicar otro de los ejercicios/ejemplos que hice en clase este curso. Se trataba de bajarse los tweets de alguien y con las fotos de los tweets hacer un colague. Como no,  para evangelizar a mis estudiantes, decidí hacerlo con Nacho Vegas.
+
+Para quien no sepa quien es Nacho Vegas, NV en adelante, ya está tardando en escuchar alguna canción del mejor cantautor español **de todos los tiempos**.^[Serrat y Sabina se acercan pero no llegan, bueno, en realidad son fantastiquerrimos pero no se acercan a NV. Como veis soy fan. Yeah!]. Bueno, un poco más en serio, yo creo que a NV hay que conocerlo, así que aquí os dejo algunas canciones: quizás la canción más hit, más fácil para empezar, sea la de [Michi Panero](https://www.youtube.com/watch?v=cfl8OyjIUiQ&list=PLVUGDQTAofaKXFVkNbgt1ZYm0eJPFL_2z&index=2), ... pero tiene chorrocientas mejores!!
+
+¿Que cual es su mejor canción? pues no sé, va cambiando, pero entre el top 10 está el [Ángel Simón](https://www.youtube.com/watch?v=D9SPyWHfYA4&list=RDD9SPyWHfYA4&start_radio=1&t=22) que en cierta forma también es fácil para entrar, pero eso sí, piensa que son 8 minutos y que empieza lenta pero .... Un análisis de algunas canciones de NV [aquí](). Otras opciones para empezar con NV: [Un simple giro del destibo](https://www.youtube.com/watch?v=Iu3C7LHox88), [Ciudad vampira](https://www.youtube.com/watch?v=pYW8eYxnrME), [Un rayo cae](https://www.youtube.com/watch?v=kgZR7LeXRMA), [Plan Quinquenal](https://www.youtube.com/watch?v=0Yuj2Rz28Os); estas últimas cuatro canciones son versiones de Bob Dylan, Daniel Jhonston, El Niño Gusano y Manel. Peroooo, al final hay que ir a [8 y medio](https://www.youtube.com/watch?v=CzNs-LjgHWk) y [Seronda](https://www.youtube.com/watch?v=fHwH7odGdQA), esa es la prueba final para ver si te gusta NV. Espero que sí!!
+
+Bueno, dejamos ya a NV, bueno en realidad no porque vamos a analizar sus tweets.

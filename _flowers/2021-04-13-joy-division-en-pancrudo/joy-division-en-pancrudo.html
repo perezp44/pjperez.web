@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #20794d; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.sc { color: #20794d; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -1264,10 +1264,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refs = $(this).attr('data-cites').split(" ");
-        var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
-        }).join("\n");
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1438,7 +1435,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="joy-division-en-pancrudo_files/header-attrs-2.7/header-attrs.js"></script>
+  <script src="joy-division-en-pancrudo_files/header-attrs-2.10/header-attrs.js"></script>
   <script src="joy-division-en-pancrudo_files/clipboard-2.0.6/clipboard.min.js"></script>
   <link href="joy-division-en-pancrudo_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
   <script src="joy-division-en-pancrudo_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
@@ -1519,12 +1516,12 @@ El código:
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#- hace falta tener la geometría, en este caso de Pancrudo</span>
 <span class='co'>#- remotes::install_github("rOpenSpain/LAU2boundaries4spain")</span>
-<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>LAU2boundaries4spain</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/LAU2boundaries4spain/man/municipios_2021.html'>municipios_2021</a></span> 
-<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>pjpv.datos.01</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/pjpv.datos.01/man/LAU2_muni_2020_canarias.html'>LAU2_muni_2020_canarias</a></span>
+<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>LAU2boundaries4spain</span><span class='fu'>::</span><span class='va'>municipios_2021</span> 
+<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>pjpv.datos.01</span><span class='fu'>::</span><span class='va'>LAU2_muni_2020_canarias</span>
 <span class='va'>pancrudo_bound</span> <span class='op'>&lt;-</span> <span class='va'>municipios</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ine_muni.n</span> <span class='op'>==</span> <span class='st'>"Pancrudo"</span><span class='op'>)</span>
 
 <span class='co'>#- bajamos datos de elevación (Pancrudo) -----------------</span>
-<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'>elevatr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/elevatr/man/get_elev_raster.html'>get_elev_raster</a></span><span class='op'>(</span>locations <span class='op'>=</span> <span class='va'>pancrudo_bound</span>, z <span class='op'>=</span> <span class='fl'>9</span>, clip <span class='op'>=</span> <span class='st'>"locations"</span><span class='op'>)</span>
+<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'>elevatr</span><span class='fu'>::</span><span class='fu'>get_elev_raster</span><span class='op'>(</span>locations <span class='op'>=</span> <span class='va'>pancrudo_bound</span>, z <span class='op'>=</span> <span class='fl'>9</span>, clip <span class='op'>=</span> <span class='st'>"locations"</span><span class='op'>)</span>
 <span class='co'>#- convertimos en data.frame y arreglamos</span>
 <span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, xy <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>elevation_data</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"elevation"</span>
@@ -1544,12 +1541,12 @@ El código:
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#- ahora el Joy Division plot: https://danielredondo.com/posts/20200125_joy_division/</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://wilkelab.org/ggridges/'>ggridges</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>ggridges</span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>mapproj</span><span class='op'>)</span>
 
 <span class='co'># Primera aproximación</span>
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://wilkelab.org/ggridges/reference/geom_density_ridges.html'>geom_density_ridges</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>70</span><span class='op'>)</span>
+  <span class='fu'>geom_density_ridges</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>70</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -1565,7 +1562,7 @@ El código:
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#- final plot de Daniel</span>
 <span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://wilkelab.org/ggridges/reference/geom_density_ridges.html'>geom_density_ridges</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>,
+  <span class='fu'>geom_density_ridges</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>,
                       fill <span class='op'>=</span> <span class='st'>"black"</span>, color <span class='op'>=</span> <span class='st'>"green"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.grid.major <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
@@ -1608,11 +1605,11 @@ El código:
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#- R script para hacer el flower post de 11 de Abril de 2021</span>
 <span class='co'>#- voy a usar datos de elevación de aqui: https://rspatialdata.github.io/elevation.html</span>
 
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rspatial.org/raster'>raster</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jhollist/elevatr/'>elevatr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sjmgarnier/viridis'>viridis</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>raster</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>elevatr</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>sf</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>viridis</span><span class='op'>)</span>
 
 <span class='co'>#library(rgeoboundaries) #- remotes::install_gitlab("dickoa/rgeoboundaries")</span>
 <span class='co'>#swiss_bound &lt;- geoboundaries("Switzerland")</span>
@@ -1620,33 +1617,33 @@ El código:
 
 <span class='co'>#- hace falta tener la geometría, en este caso de Pancrudo</span>
 <span class='co'>#- remotes::install_github("rOpenSpain/LAU2boundaries4spain")</span>
-<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>LAU2boundaries4spain</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/LAU2boundaries4spain/man/municipios_2021.html'>municipios_2021</a></span> 
-<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>pjpv.datos.01</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/pjpv.datos.01/man/LAU2_muni_2020_canarias.html'>LAU2_muni_2020_canarias</a></span>
+<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>LAU2boundaries4spain</span><span class='fu'>::</span><span class='va'>municipios_2021</span> 
+<span class='va'>municipios</span> <span class='op'>&lt;-</span> <span class='fu'>pjpv.datos.01</span><span class='fu'>::</span><span class='va'>LAU2_muni_2020_canarias</span>
 <span class='va'>pancrudo_bound</span> <span class='op'>&lt;-</span> <span class='va'>municipios</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ine_muni.n</span> <span class='op'>==</span> <span class='st'>"Pancrudo"</span><span class='op'>)</span>
 
 <span class='co'>#- bajamos datos de elevación (Pancrudo) -----------------</span>
-<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'>elevatr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/elevatr/man/get_elev_raster.html'>get_elev_raster</a></span><span class='op'>(</span>locations <span class='op'>=</span> <span class='va'>pancrudo_bound</span>, z <span class='op'>=</span> <span class='fl'>9</span>, clip <span class='op'>=</span> <span class='st'>"locations"</span><span class='op'>)</span>
+<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'>elevatr</span><span class='fu'>::</span><span class='fu'>get_elev_raster</span><span class='op'>(</span>locations <span class='op'>=</span> <span class='va'>pancrudo_bound</span>, z <span class='op'>=</span> <span class='fl'>9</span>, clip <span class='op'>=</span> <span class='st'>"locations"</span><span class='op'>)</span>
 <span class='co'>#- convertimos en data.frame y arreglamos</span>
-<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/raster/man/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, xy <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, xy <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>elevation_data</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"elevation"</span>
 <span class='co'>#- quitamos NA's</span>
 <span class='va'>elevation_data</span> <span class='op'>&lt;-</span> <span class='va'>elevation_data</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/stats/complete.cases.html'>complete.cases</a></span><span class='op'>(</span><span class='va'>elevation_data</span><span class='op'>)</span>,<span class='op'>]</span> 
 
 <span class='co'>#- ahora el Joy Division plot: https://danielredondo.com/posts/20200125_joy_division/</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://wilkelab.org/ggridges/'>ggridges</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>ggridges</span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>mapproj</span><span class='op'>)</span>
 
 <span class='co'># Primera aproximación</span>
 <span class='va'>p0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://wilkelab.org/ggridges/reference/geom_density_ridges.html'>geom_density_ridges</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>70</span><span class='op'>)</span>
+  <span class='fu'>geom_density_ridges</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>70</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='va'>p0</span>, filename <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"imagenes"</span>, <span class='st'>"joy_division_Pancrudo_00.png"</span><span class='op'>)</span>,
        device <span class='op'>=</span> <span class='st'>"png"</span>, width <span class='op'>=</span> <span class='fl'>10</span>, height <span class='op'>=</span> <span class='fl'>13</span>, units <span class='op'>=</span> <span class='st'>"cm"</span><span class='op'>)</span>
 
 <span class='co'>#- grafico final de Daniel</span>
 <span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>elevation_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://wilkelab.org/ggridges/reference/geom_density_ridges.html'>geom_density_ridges</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>,
+  <span class='fu'>geom_density_ridges</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>,
                       fill <span class='op'>=</span> <span class='st'>"black"</span>, color <span class='op'>=</span> <span class='st'>"orange"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.grid.major <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
@@ -1669,7 +1666,7 @@ El código:
 
 <span class='co'>#- intento hacer una linea en verde</span>
 <span class='va'>elevation_verde</span> <span class='op'>&lt;-</span> <span class='va'>elevation_data</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'>near</span><span class='op'>(</span><span class='va'>y</span>, <span class='fl'>40.79164</span>, tol <span class='op'>=</span> <span class='fl'>0.000081</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'><a href='https://wilkelab.org/ggridges/reference/geom_density_ridges.html'>geom_density_ridges</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>elevation_verde</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>, fill <span class='op'>=</span> <span class='st'>"black"</span>, color <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span>
+<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_density_ridges</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>elevation_verde</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span>, group <span class='op'>=</span> <span class='va'>y</span>, height <span class='op'>=</span> <span class='va'>elevation</span><span class='op'>)</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span>, scale <span class='op'>=</span> <span class='fl'>30</span>, fill <span class='op'>=</span> <span class='st'>"black"</span>, color <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span>
 
 
 <span class='co'>#- intento de ponerle un marco GOOD -------------------</span>
@@ -1693,6 +1690,7 @@ El código:
 </div>
 <p><strong>FIN</strong></p>
 <p>PD: Me quedo con las ganas de replicar otro post de Daniel, <a href="https://danielredondo.com/posts/20180723_granada_hex/">este</a>. De hecho lo he probado y salía, solo que a la hora de poner los hexstickers en los hexágonos me quedaba sin memoria, yo no, el PC. Tengo el código en el fichero <code>.R</code> del post anterior, el de el mapa con las elevaciones de Pancrudo (no à la Joy Division).</p>
+<p>PD: Acabo de ver <a href="https://nils.ratnaweera.net/posts/2021-08-13-minimalistic-topography/">este post</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

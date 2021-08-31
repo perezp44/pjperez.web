@@ -15,7 +15,7 @@ library(viridis)
 #- remotes::install_github("rOpenSpain/LAU2boundaries4spain")
 municipios <- LAU2boundaries4spain::municipios_2021 
 municipios <- pjpv.datos.01::LAU2_muni_2020_canarias
-pancrudo_bound <- municipios %>% filter(ine_muni.n == "Pancrudo")
+pancrudo_bound <- municipios %>% dplyr::filter(ine_muni.n == "Pancrudo")
 
 #- bajamos datos de elevación (Pancrudo) -----------------
 elevation_data <- elevatr::get_elev_raster(locations = pancrudo_bound, z = 9, clip = "locations")

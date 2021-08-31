@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -138,7 +138,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["imagenes/tablas_padron_municipios.png","imagenes/tablas_padron_secciones.png"]}
+  {"type":"character","attributes":{},"value":["imagenes/tablas_padron_municipios.png","imagenes/tablas_padron_secciones.png","seguimos-con-el-padron-continuo_files/anchor-4.2.2/anchor.min.js","seguimos-con-el-padron-continuo_files/bowser-1.9.3/bowser.min.js","seguimos-con-el-padron-continuo_files/clipboard-2.0.6/clipboard.min.js","seguimos-con-el-padron-continuo_files/distill-2.2.21/template.v2.js","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/css/all.css","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/css/v4-shims.css","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-brands-400.eot","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-brands-400.svg","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-brands-400.ttf","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-brands-400.woff","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-brands-400.woff2","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-regular-400.eot","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-regular-400.svg","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-regular-400.ttf","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-regular-400.woff","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-regular-400.woff2","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-solid-900.eot","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-solid-900.svg","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-solid-900.ttf","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-solid-900.woff","seguimos-con-el-padron-continuo_files/font-awesome-5.1.0/webfonts/fa-solid-900.woff2","seguimos-con-el-padron-continuo_files/header-attrs-2.6/header-attrs.js","seguimos-con-el-padron-continuo_files/jquery-1.11.3/jquery.min.js","seguimos-con-el-padron-continuo_files/popper-2.6.0/popper.min.js","seguimos-con-el-padron-continuo_files/tippy-6.2.7/tippy-bundle.umd.min.js","seguimos-con-el-padron-continuo_files/tippy-6.2.7/tippy-light-border.css","seguimos-con-el-padron-continuo_files/tippy-6.2.7/tippy.css","seguimos-con-el-padron-continuo_files/tippy-6.2.7/tippy.umd.min.js","seguimos-con-el-padron-continuo_files/webcomponents-2.0.0/webcomponents.js","seguimos-con-el-padron-continuo_files/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.css","seguimos-con-el-padron-continuo_files/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -1891,10 +1891,7 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refs = $(this).attr('data-cites').split(" ");
-      var refHtml = refs.map(function(ref) {
-        return "<p>" + $('#ref-' + ref).html() + "</p>";
-      }).join("\n");
+      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2475,10 +2472,10 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.7/header-attrs.js"></script>
   <script src="../../site_libs/clipboard-2.0.6/clipboard.min.js"></script>
-  <link href="../../site_libs/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.css" rel="stylesheet" />
-  <script src="../../site_libs/xaringanExtra-clipboard-0.2.3/xaringanExtra-clipboard.js"></script>
+  <link href="../../site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+  <script src="../../site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
   <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
   <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
   <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -2594,7 +2591,7 @@ gtag('config', 'UA-71846326-7');
 <li><p>Apellidos y nombres más frecuentes<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p></li>
 </ul>
 <h2 id="más-detalles-sobre-las-tablas-del-padrón-continuo">Más detalles sobre las tablas del Padrón continuo</h2>
-<p>Ya he comentado que el INE ofrece un conjunto amplio de tablas con datos parciales del Padrón para distintos niveles de desagregación y horizontes temporales. Las tablas que más me interesan son las tablas con información a nivel municipal, y censal. Para clase y el blog procesaré los datos con detalle municipal.</p>
+<p>Bueno, volvamos a la <a href="https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736177012&amp;menu=ultiDatos&amp;idp=1254734710990">Estadística del Padrón continuo.</a>. Ya he comentado que el INE ofrece un conjunto amplio de tablas con datos parciales del Padrón para distintos niveles de desagregación y horizontes temporales. Las tablas que más me interesan son las tablas con información a nivel municipal, y censal. Para clase y el blog procesaré los datos con detalle municipal.</p>
 <p>Hay seis tablas. Veámoslas:</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="imagenes/tablas_padron_municipios.png" width="70%" style="display: block; margin: auto;" /></p>
@@ -2615,7 +2612,7 @@ gtag('config', 'UA-71846326-7');
 <li id="fn4" role="doc-endnote"><p>Utilice estos datos en el primer post, cuando descubrimos que existía Aliaga del Lagarto. Lo siento Pili!!! 😇 🤣 🦎🦎 🤣<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5" role="doc-endnote"><p>Por si algún día quiero saber cuantas personas nacidas en Burgos residen actualmente en Teruel<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6" role="doc-endnote"><p>Seguro que le echo un vistazo cuando salgan los nuevos datos el 18 de marzo<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>En uno de los trabajos que los estudiantes elaboraron este curso, utilizaron estos datos. El trabajo está <a href="https://dasdfg098.github.io/trabajo_BigData_equipo/">aquí</a> y el repo <a href="https://github.com/dasdfg098/trabajo_BigData_equipo">aquí</a> <a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>En uno de los trabajos que los estudiantes elaboraron este curso, utilizaron estos datos. El trabajo está <a href="https://dasdfg098.github.io/trabajo_BigData_equipo/">aquí</a> y el repo <a href="https://github.com/dasdfg098/trabajo_BigData_equipo">aquí</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->

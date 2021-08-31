@@ -6,7 +6,7 @@
       "description": "El blog tendrá posts sobre ciencia de datos, principalmente sobre análisis y manejo de datos con R. La intención es que el blog de al lado, R & flowers, acoja los posts digamos más personales y quizás menos trabajados. Todos los hago para aprender y divertirme con R.\n",
       "author": [],
       "contents": "\n\n\n.thumbnail {\n  border: 1px solid black;\n}\n\n\n\n\n",
-      "last_modified": "2021-04-13T17:01:32+02:00"
+      "last_modified": "2021-08-31T10:45:11+02:00"
     },
     {
       "path": "02_Rflowers.html",
@@ -14,7 +14,7 @@
       "description": "R & flowers blog acogerá posts que me apetezca hacer para divertirme o trastear con R. El blog de al lado tendrá posts digamos más serios y un poco más trabajados, principalmente sobre análisis y manejo de datos con R. Todos los hago para aprender y divertirme con R.\n",
       "author": [],
       "contents": "\n\n\n.thumbnail {\n  border: 1px solid black;\n}\n\n\n\n\n",
-      "last_modified": "2021-04-13T17:01:32+02:00"
+      "last_modified": "2021-08-31T10:45:12+02:00"
     },
     {
       "path": "03_about.html",
@@ -22,14 +22,14 @@
       "description": "Algo más de información sobre el blog y sobre mi.",
       "author": [],
       "contents": "\nEsta página web me va a servir principalmente para alojar algunos artículos en el/los blog’s: Pedro J. Pérez blog y R & flowers blog.\nLa verdad es que me gusta escribir posts, tienes mucha más libertad que al escribir un informe o un artículo académico. Los posts no tienen porque estar perfectos, cuando te apetece los puedes dejar, aunque no estén perfectos ni acabados del todo.\nA pesar de que los posts no estén acabados, el pensar que alguien puede leerlos te hace pensar y reflexionar sobre lo que escribes, de forma que acaban siendo útiles, principalmente para uno mismo, para documentar análisis que has hecho o cosas que has aprendido que de otro modo olvidarías.\n\nRemember kids, the only difference between screwing around and science is writing it down — Adam Savage de MythBusters\n\nDe hecho, ya llevo una larga carrera como bloguero (“guiño-guiño”). Aquí están algunos de mis anteriores blogs:\nEl primero lo hice allá en 2016, utilicé Jekyll y (es una historia larga) lo llamé R & flowers. Hice la friolera de 10 posts, mi récord absoluto hasta el momento.\nEl segundo lo creé en 2018. Me pasé a blogdown que usa Hugo. Lo llamé R & flowers V. Es una larga historia lo que les paso a los números intermedios. Bajaron mis registros, sólo hice 6 posts.\nEn el tercero, ya en 2020, me pasé a Distill. Lo hice durante el confinamiento porque me pareció una buena idea hacer una página web para una asignatura, así que aproveche el tirón y creé R & flowers 0.1.3. Los registros se derrumbaron, sólo un post 👎. Que queréis, estábamos en pandemia!! Además tenía que hacer una página web para dar clase online. Se quedaron varios posts a medio escribir, eran sobre temas sanitarios, camas en hospitales …\nEl cuarto, de 2021, es esta página web que estás viendo. Es una Distill webpage con 2 blogs. ¿De verdad te hacen falta 2 blogs? No, pero no sé que ha pasado. Creo que el segundo se ha creado solo, alguna espora!! Espero que tengan una larga vida. Vorem!!! De momento la temática principal, si no cambio, va a ser limpiar, sí limpiar, y analizar datos del INE. En cierta forma me relaja, es como hacer sudokus.\nAparte de abrir y abandonar blogs … también me gusta mucho trastear con datos y con R. Muchas veces lo hago por gusto, pero otras es por motivos profesionales o docentes. Por ejemplo, llevo dos años dando una asignatura con un nombre largito, pero que en realidad es un curso de introducción a R. Aquí está su página web: https://perezp44.github.io/intro-ds-20-21-web/. Tenéis que ver los trabajos que hicieron los estudiantes!!\nLa web de la asignatura que hice rápido-rápido durante el confinamiento está aquí. Se parece mucho a la web del curso de R pero sólo visualmente.\nQuien sabe, igual acabo en Andorra como los blogueros, bueno, en realidad creo que eran youtubers o instagramers, whatever. Como Benjamín Prado dice, Nunca es tarde!!\n\n\"Nunca es tarde para empezar de cero,para quemar los barcos,para que alguien te diga:-Yo sólo puedo estar contigo o contra mí.Nunca es tarde para cortar la cuerda,para volver a echar las campanas al vuelo,para beber de ese agua que no ibas a beber\".Benjamín Prado pic.twitter.com/YppQ1UAXHk— literland (@literlandweb1) March 17, 2019\n\n\n\n\n\n",
-      "last_modified": "2021-04-13T17:01:34+02:00"
+      "last_modified": "2021-08-31T10:45:13+02:00"
     },
     {
       "path": "index.html",
       "title": "pedro.j.perez blog's",
       "author": [],
       "contents": "\n\nContents\nBienvenido / Welcome\n\nBienvenido / Welcome\nMi nombre es Pedro J. Pérez y soy profesor del departamento de Análisis Económico de la Universitat de València.\n\n\n\nUtilizo R en mi docencia e investigación pero, además, me gusta jugar y trastear con R para aprender sobre programación,  y datos. Esta página web me va a servir para alojar algunos de estos análisis en el blog. Bueno, en realidad hay 2 blogs: Pedro J. Pérez blog y R & flowers blog.\nComo explico un poco en About, los posts los escribo principalmente para mi, pero claro siempre confías/crees que alguien los leerá y que a alguien le gustarán, o le servirán, o encontrarán errores, o … o …, así que, a pesar de que casi no uso las redes sociales:\n@pjpv4444\n@perezp44\nEl mail de toda la vida sí:\npedro.j.perez@uv.es\n\n\n\n",
-      "last_modified": "2021-04-13T17:01:35+02:00"
+      "last_modified": "2021-08-31T10:45:14+02:00"
     }
   ],
   "collections": ["posts/posts.json", "flowers/flowers.json"]

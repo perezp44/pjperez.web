@@ -239,3 +239,5 @@ ggsave(p2, filename = here::here("imagenes", "joy_division_Pancrudo_02_naranja_x
 **FIN**
 
 PD: Me quedo con las ganas de replicar otro post de Daniel, [este](https://danielredondo.com/posts/20180723_granada_hex/). De hecho lo he probado y salía, solo que a la hora de poner los hexstickers en los hexágonos me quedaba sin memoria, yo no, el PC. Tengo el código en el fichero `.R` del post anterior, el de el mapa con las elevaciones de Pancrudo (no à la Joy Division).
+
+PD: Acabo de ver [este post](https://nils.ratnaweera.net/posts/2021-08-13-minimalistic-topography/)

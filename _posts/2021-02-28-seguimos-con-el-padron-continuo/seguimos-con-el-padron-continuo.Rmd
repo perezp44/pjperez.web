@@ -83,13 +83,13 @@ Además, partiendo de los datos del Padrón continuo, el INE ofrece una [serie d
 
 - Estadística del Padrón de españoles residentes en el extranjero^[Seguro que le echo un vistazo cuando salgan los nuevos datos el 18 de marzo]
 
-- Apellidos y nombres más frecuentes^[En uno de los trabajos que los estudiantes elaboraron este curso, utilizaron estos datos. El trabajo está [aquí](https://dasdfg098.github.io/trabajo_BigData_equipo/) y el repo [aquí](https://github.com/dasdfg098/trabajo_BigData_equipo) ]
+- Apellidos y nombres más frecuentes^[En uno de los trabajos que los estudiantes elaboraron este curso, utilizaron estos datos. El trabajo está [aquí](https://dasdfg098.github.io/trabajo_BigData_equipo/) y el repo [aquí](https://github.com/dasdfg098/trabajo_BigData_equipo)]
 
 
 
 ## Más detalles sobre las tablas del Padrón continuo
 
-Ya he comentado que el INE ofrece un conjunto amplio de tablas con datos parciales del Padrón para distintos niveles de desagregación y horizontes temporales. Las tablas que más me interesan son las tablas con información  a nivel municipal, y censal. Para clase y el blog procesaré los datos con detalle municipal.
+Bueno, volvamos a la [Estadística del Padrón continuo.](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177012&menu=ultiDatos&idp=1254734710990). Ya he comentado que el INE ofrece un conjunto amplio de tablas con datos parciales del Padrón para distintos niveles de desagregación y horizontes temporales. Las tablas que más me interesan son las tablas con información  a nivel municipal, y censal. Para clase y el blog procesaré los datos con detalle municipal.
 
 Hay seis tablas. Veámoslas:
 

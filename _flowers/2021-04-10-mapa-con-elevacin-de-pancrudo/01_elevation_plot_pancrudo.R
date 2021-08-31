@@ -132,7 +132,10 @@ ggsave(p_vecinos, filename = here::here("imagenes", "relieve_elevacion_Pancrudo_
        device = "png", width = 18, height = 14, units = "cm")
 
 #- Poner los 4 pueblos de Pancrudo -----------------
+#- en realidad no funciona xq al final no arregle el fichero de ENTIDADES del IGN, habrá q hacerlo
 pueblos1 <- rio::import("/home/pjpv/Escritorio/my_datos_2021/datos/codigos/IGN_municipios.xlsx") %>% filter(stringr::str_detect(COD_INE_CAPITAL, "^44177"))
+
+
 
 p + geom_point(data = pueblos1, aes(x = LONGITUD_ETRS89, y = LATITUD_ETRS89))
 names(pueblos1)
